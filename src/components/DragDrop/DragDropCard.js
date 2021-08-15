@@ -42,11 +42,10 @@ export const onDrag = (event, table) => {
 
 //Cards that can be the drop target of a dragged card
 export const enterDrag = (table, setTable, card, deck) => {
-  if(!card.isClosed) {
-    var decksOnTable = [...table.decks];
+  var decksOnTable = [...table.decks];
     if (card === "" && table.selectedCard !== "") {
       decksOnTable.forEach((deck) =>
-        deck.forEach((tempCard) => (tempCard.isHighlighted = false))
+        deck.forEach((tempCard) => (tempCard.isTargetCard = false))
       );
     }
     else if (card !== "" && card !== table.selectedCard) {
@@ -55,21 +54,28 @@ export const enterDrag = (table, setTable, card, deck) => {
       var cardIndex = decksOnTable[deckIndex].indexOf(card);
       if (cardIndex !== decksOnTable[deckIndex].length - 1) return;
       decksOnTable.forEach((deck) =>
-      deck.forEach((tempCard) => (tempCard.isHighlighted = false)));
-    decksOnTable[deckIndex][ cardIndex].isHighlighted = true;
+      deck.forEach((tempCard) => (tempCard.isTargetCard = false)));
+    decksOnTable[deckIndex][ cardIndex].isTargetCard = true;
   }
   setTable((previousSet) => ({
     ...previousSet,
-    highlightedCard: card,
-    highlightedDeck: deck,
+    targetCard: card,
+    targetDeck: deck,
     decks: decksOnTable,
   }));
-  }
 };
 
 //Drops the dragged card on the other cards if it is suitable for the set to be placed
 export const endDrag = (card, table, setTable) => {
-  if (checkTargetRank(table.highlightedCard, table)) {
+  //If the target card is the card holder then the card holder is removed
+  //Drag is allowed for each card
+  console.log(table);
+  if (table.targetCard === "") {
+    transferCardsToAnother(table.targetDeck, table.selectedDeck, table.selectedCard, setTable, table);
+    deleteCardSelection(table, setTable);
+  }
+  //If the target card is not card holder
+  if (checkTargetRank(table.targetCard, table)) {
     if (checkSelectedCardMove(table.selectedCard, table.selectedDeck)) {
       table.selected.forEach((card) => {
         var child = document.getElementById(
@@ -77,32 +83,33 @@ export const endDrag = (card, table, setTable) => {
         ).children[0];
         child.style.cssText = "z-index:0;pointer-events:auto;display:none;";
       });
-      transferCardsToAnother(table.highlightedDeck,
+      transferCardsToAnother(table.targetDeck,
         table.selectedDeck,
         table.selectedCard,
         setTable,
         table);
-      IsCompleteSet(table.highlightedDeck, table, setTable);
+      IsCompleteSet(table.targetDeck, table, setTable);
       deleteCardSelection(table, setTable);
+      console.log(table);
       return;
-    } else {
-      table.selected.forEach((card) => {
-        var child = document.getElementById(
-          card.rank + " " + card.suit + " " + card.deck
-        ).children[0];
-        child.style.cssText = "z-index:0;pointer-events:auto;";
-      });
-      deleteCardSelection(table, setTable);
+    } 
+    else {
+      notMatchTargetEndDrag(table, setTable);
     }
-  } else {
-    table.selected.forEach((card) => {
-      var child = document.getElementById(
-        card.rank + " " + card.suit + " " + card.deck
-      ).children[0];
-      child.style.cssText = "z-index:0;pointer-events:auto;";
-    });
-    deleteCardSelection(table, setTable);
+  } 
+  else { 
+    notMatchTargetEndDrag(table, setTable);
   }
 };
 
+//Adds animation if card does not match target when dropped
+export const notMatchTargetEndDrag = (table, setTable) => {
+  table.selected.forEach((card) => {
+    var child = document.getElementById(
+      card.rank + " " + card.suit + " " + card.deck
+    ).children[0];
+    child.style.cssText = "z-index:0;pointer-events:auto;";
+  });
+  deleteCardSelection(table, setTable);
+}
 

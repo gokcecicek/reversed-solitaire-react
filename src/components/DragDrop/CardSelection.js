@@ -1,5 +1,6 @@
 import getConstants from "../Common/Constants";
-import { checkSelectedCardMove } from "./Move";
+import { IsCompleteSet } from "./CardQueue";
+import { checkSelectedCardMove, transferCardsToAnother } from "./Move";
 
 // Returns card rank
 export const getCardRank = (cardRank) => {
@@ -9,6 +10,14 @@ export const getCardRank = (cardRank) => {
 
 //Card selection is preserved
 export const cardSelection= (card, deck, cardHolder, table, setTable) => {
+  if (cardHolder && table.selectedCard !== "") {
+    if (table.selectedCard.rank === "K") {
+      transferCardsToAnother(deck, table.selectedDeck, table.selectedCard, setTable, table);
+      IsCompleteSet(deck, table, setTable);
+      deleteCardSelection(table, setTable);
+    }
+  }
+
   var tempCard = card;
   // Handling drag and drop method
   if (table.selectedCard === "") {

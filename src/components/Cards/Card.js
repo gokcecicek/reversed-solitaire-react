@@ -2,6 +2,7 @@ import "./Card.scss";
 import React, { useState, useEffect } from "react";
 import getConstants from "../Common/Constants";
 
+
 function Card({ card, isSelected, isClosed }) {
   
   const [closed, setClosed] = useState("");
@@ -13,16 +14,16 @@ function Card({ card, isSelected, isClosed }) {
   }, [isClosed, isSelected, card.suit])
   
   return (
-    <div className={"card" + closed + select} >
-      <div className="card-container card-rank-left">
+      <div className={"card" + closed + select} >
+        <div className="card-container card-rank-left">
         {card.rank}
         <div className="spade-bottom-rank">{getConstants.SYMBOL}</div>
-      </div>
+        </div>
       <div className="card-container card-rank-right">
         {card.rank}
-      <div className="spade-top-rank">{getConstants.SYMBOL}</div>
+        <div className="spade-top-rank">{getConstants.SYMBOL}</div>
+        </div>
       </div>
-    </div>
   );
 }
 

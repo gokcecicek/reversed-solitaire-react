@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
+import "./common.scss";
 import Stock from "../Stock/Stock";
 import ShuffleDeck from "../Tableau/Shuffle";
-import "./common.scss";
 import TableauPile from "../Tableau/TableauPile";
 import Tableau from "../Tableau/Tableau";
+import Foundation from "../Foundation/Foundation";
 
 function Home() {
   const [cards, setcards] = useState({});
@@ -29,6 +30,7 @@ function Home() {
 
   return (
     <div className="container">
+      <Foundation></Foundation>
       <Tableau table={table} setTable={setTable}></Tableau>
       {cards.hasOwnProperty("decks") && table.decks[10].length > 0 && (
       <Stock table={table} setTable={setTable}></Stock>
