@@ -46,17 +46,3 @@ function Tableau(props) {
     );
 }
 export default Tableau;
-{/* <div key={index + " 2"} deck={deck}>
-                {deck.map((card, key) => (
-                <div id={card.rank + " " + card.suit + " " + card.deck}
-                className="card-wrapper"
-                draggable={true}
-                onDragStart={(e) => { beginDrag(e, card, deck, table, setTable); }}
-                onDrag={(e) => { onDrag(e, table); }}
-                onDragEnter={(e) => { enterDrag(table, setTable, card, deck); }}
-                onDragEnd={(e) => { endDrag(card, table, setTable); }}>
-                    <Card key={card.rank + " " + card.suit + " " + card.deck} card={card}
-                    isSelected={card.isSelected} isClosed={card.isClosed}/>
-                    </div>
-                ))}
-            </div> */}
