@@ -1,0 +1,17 @@
+//BACKGROUND
+.background {
+    background-image: url(../../assets/background.jpg);
+    position: fixed;
+    width:100%;
+    height:100%;
+    top:0px;
+    left:0px;
+}
+
+//TABLEAU
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  

@@ -1,0 +1,64 @@
+.card {
+  position: relative;
+  border: 2px solid black;
+  cursor: pointer;
+  width: 6vw;
+  height: 9.2vw;
+  border-radius: 0.4vw;
+  margin-left:10px;
+}
+
+.card-closed {
+  background: url("../../assets/card-back.jpg") no-repeat;
+  background-size: contain;
+  margin-bottom: -8.5vw;
+  border: 2px solid transparent;
+}
+
+.spade {
+  background: url("../../assets/spade.png") #ffffff;
+  color: black;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 50%;
+}
+
+.card-rank-left {
+  font-weight: bold;
+  text-align: left;
+  margin-left: 0.4vw;
+  margin-top: 0.2vw;
+}
+
+.card-rank-right {
+  font-weight: bold;
+  text-align: left;
+  position: relative;
+  transform: rotate(180deg);
+  top: 2.7vw;
+  margin-right: 0.4vw;
+}
+
+.card-closed > .card-container {
+  visibility: hidden;
+}
+
+.card-selected {
+  box-shadow: 10px 10px 12px black;
+  border: 2px solid black;
+}
+
+.card-stock {
+  position: absolute;
+  top: 10vh;
+  right: 89vw;
+}
+
+.card-wrapper {
+  margin-bottom: -7.6vw;
+  transition: all 4s smooth;
+}
+
+
+
+    
