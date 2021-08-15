@@ -1,6 +1,8 @@
+$background-image: url(../../assets/background.jpg);
+
 //BACKGROUND
 .background {
-    background-image: url(../../assets/background.jpg);
+    background-image: $background-image;
     position: fixed;
     width:100%;
     height:100%;
@@ -14,5 +16,5 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-  }
+}
   

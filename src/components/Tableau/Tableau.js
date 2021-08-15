@@ -1,9 +1,9 @@
 import React from "react";
 import "./Tableau.scss";
 import Card from "../Cards/Card";
-import { beginDrag, onDrag, enterDrag, endDrag } from "../DragDrop/DragDropCard";
-import { cardSelection } from "../DragDrop/CardSelection";
 import CardHolder from "../Cards/CardHolder";
+import { cardSelection } from "../DragDrop/CardSelection";
+import { beginDrag, onDrag, enterDrag, endDrag } from "../DragDrop/DragDropCard";
 
 //Where cards are lined up in sets on the table
 function Tableau(props) {

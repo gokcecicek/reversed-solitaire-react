@@ -1,23 +1,34 @@
-//CARD BASE
+$card-width: 6vw;
+$card-height: 9.2vw;
+$card-border:  2px solid black;
+$card-border-radius: 0.4vw;
+$card-back: url("../../assets/card-back.jpg") no-repeat;
+$card-suit: url("../../assets/spade.png") #ffffff;
+
+@mixin card-base {
+  width: $card-width;
+  height: $card-height;
+}
+
+//CARD
 .card {
+  @include card-base;
   position: relative;
-  border: 2px solid black;
   cursor: pointer;
-  width: 6vw;
-  height: 9.2vw;
-  border-radius: 0.4vw;
   margin-left:10px;
+  border: $card-border;
+  border-radius: $card-border-radius;
 }
 
 .card-closed {
-  background: url("../../assets/card-back.jpg") no-repeat;
+  background: $card-back;
   background-size: contain;
   margin-bottom: -8.5vw;
   border: 2px solid transparent;
 }
 
 .spade {
-  background: url("../../assets/spade.png") #ffffff;
+  background: $card-suit;
   color: black;
   background-repeat: no-repeat;
   background-position: center;
@@ -46,7 +57,7 @@
 
 .card-selected {
   box-shadow: 10px 10px 12px black;
-  border: 2px solid black;
+  border: $card-border;
 }
 
 .card-stock {
@@ -62,13 +73,12 @@
 
 //CARD HOLDER
 .cardholder {
+  @include card-base;
   position: relative;
-  border: 2px solid yellow;
-  width: 6vw;
-  height: 9.2vw;
-  border-radius: 0.4vw;
   opacity: 0.5;
+  border: 2px solid yellow;
   background-color: black;
+  border-radius: $card-border-radius;
 }
 
     
