@@ -66,11 +66,11 @@ export const enterDrag = (table, setTable, card, deck) => {
 };
 
 //Drops the dragged card on the other cards if it is suitable for the set to be placed
-export const endDrag = (card, table, setTable) => {
+export const endDrag = (card, table, setTable, move, setMove) => {
   //If the target card is the card holder then the card holder is removed
   //Drag is allowed for each card
   if (table.targetCard === "") {
-    transferCardsToAnother(table.targetDeck, table.selectedDeck, table.selectedCard, setTable, table);
+    transferCardsToAnother(table.targetDeck, table.selectedDeck, table.selectedDeck, setTable, table);
     deleteCardSelection(table, setTable);
   }
   //If the target card is not card holder
@@ -89,6 +89,7 @@ export const endDrag = (card, table, setTable) => {
         table);
       IsCompleteSet(table.targetDeck, table, setTable);
       deleteCardSelection(table, setTable);
+      setMove(move + 1);
       return;
     } 
     else {

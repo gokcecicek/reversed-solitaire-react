@@ -13,6 +13,9 @@ $background-image: url(../../assets/background.jpg);
 
 //NAVBAR
 .header {
+    position: fixed;
+    right: 0;
+    left: 0;
     overflow: hidden;
     background-color: #333;
 }
@@ -22,12 +25,25 @@ $background-image: url(../../assets/background.jpg);
     overflow: hidden;
 }
 
+.header-left {
+    float: left;
+    overflow: hidden;
+}
+
+.header-left p {
+    font-size: 16px;
+    color: white;
+    font-family: inherit;
+    font-weight: bold;
+    margin-left: 4vw;
+}
+
 .header-right .restart-btn {
     font-size: 16px;  
     border: none;
     outline: none;
     color: white;
-    padding: 14px 16px;
+    padding: 16px 16px;
     background-color: inherit;
     font-family: inherit;
     margin: 0;
@@ -36,7 +52,6 @@ $background-image: url(../../assets/background.jpg);
 .header-right:hover .restart-btn {
     background-color: rgb(8, 189, 90);
 }
-
 
 //TABLEAU
 .container {

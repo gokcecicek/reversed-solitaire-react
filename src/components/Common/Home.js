@@ -5,9 +5,11 @@ import ShuffleDeck from "../Tableau/Shuffle";
 import TableauPile from "../Tableau/TableauPile";
 import Tableau from "../Tableau/Tableau";
 import Foundation from "../Foundation/Foundation";
+import Header from "./Header";
 
 function Home() {
   const [cards, setcards] = useState({});
+  const [move, setMove] = useState([]);
   const [table, setTable] = useState({
     cards: [],
     decks: [],
@@ -21,6 +23,7 @@ function Home() {
     const shuffledCards = ShuffleDeck();
     const orderedSet = TableauPile(shuffledCards);
     setcards(orderedSet);
+    setMove(0);
     setTable((previousSet) => ({
       ...previousSet,
       cards: orderedSet.cards,
@@ -29,13 +32,17 @@ function Home() {
   }, []);
 
   return (
-    <div className="container">
-      <Foundation></Foundation>
-      <Tableau table={table} setTable={setTable}></Tableau>
-      {cards.hasOwnProperty("decks") && table.decks[10].length > 0 && (
-      <Stock table={table} setTable={setTable}></Stock>
-      )}
+    <div className="background">
+      <div className="container">
+        <Header move={move}></Header>
+        <Foundation></Foundation>
+        <Tableau table={table} setTable={setTable} move={move} setMove={setMove}></Tableau>
+        {cards.hasOwnProperty("decks") && table.decks[10].length > 0 && (
+        <Stock table={table} setTable={setTable}></Stock>
+        )}
+        </div>
     </div>
+
   );
 }
 
