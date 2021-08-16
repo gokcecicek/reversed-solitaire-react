@@ -9,8 +9,8 @@ function Card({ card, isSelected, isClosed }) {
   const [select, setSelected] = useState("");
 
   useEffect(() => {
-    let closedState = isClosed ? setClosed(" card-closed") : setClosed(" " + card.suit);
-    let selectState = isSelected ? setSelected(" card-selected") : setSelected("");
+    isClosed ? setClosed(" card-closed") : setClosed(" " + card.suit);
+    isSelected ? setSelected(" card-selected") : setSelected("");
   }, [isClosed, isSelected, card.suit])
   
   return (
