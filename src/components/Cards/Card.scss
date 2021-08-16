@@ -15,7 +15,7 @@ $card-suit: url("../../assets/spade.png") #ffffff;
   @include card-base;
   position: relative;
   cursor: pointer;
-  margin-left:10px;
+  margin-left:15px;
   border: $card-border;
   border-radius: $card-border-radius;
 }
@@ -62,8 +62,8 @@ $card-suit: url("../../assets/spade.png") #ffffff;
 
 .card-stock {
   position: absolute;
-  top: 10vh;
-  right: 89vw;
+  top: 15vh;
+  right: 87vw;
 }
 
 .card-wrapper {
@@ -76,9 +76,10 @@ $card-suit: url("../../assets/spade.png") #ffffff;
   @include card-base;
   position: relative;
   opacity: 0.5;
-  border: 2px solid yellow;
+  border: 2px solid rgb(8, 189, 90);
   background-color: black;
   border-radius: $card-border-radius;
+  margin-left: 10px;
 }
 
     

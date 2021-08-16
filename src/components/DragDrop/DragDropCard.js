@@ -69,7 +69,6 @@ export const enterDrag = (table, setTable, card, deck) => {
 export const endDrag = (card, table, setTable) => {
   //If the target card is the card holder then the card holder is removed
   //Drag is allowed for each card
-  console.log(table);
   if (table.targetCard === "") {
     transferCardsToAnother(table.targetDeck, table.selectedDeck, table.selectedCard, setTable, table);
     deleteCardSelection(table, setTable);
@@ -90,7 +89,6 @@ export const endDrag = (card, table, setTable) => {
         table);
       IsCompleteSet(table.targetDeck, table, setTable);
       deleteCardSelection(table, setTable);
-      console.log(table);
       return;
     } 
     else {

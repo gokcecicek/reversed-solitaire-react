@@ -1,5 +1,5 @@
 import { chunk } from "lodash";
-import getConstants from '../Common/Constants';
+import getConstants from "../Common/Constants";
 
 //Creates the distribution of sets on the table
 //The first 4 sets will be 6, the next 6 will be 5

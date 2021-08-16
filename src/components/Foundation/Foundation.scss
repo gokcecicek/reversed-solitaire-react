@@ -1,7 +1,3 @@
-.foundation {
-    text-align: center;
-}
-
 .foundation-container{
     position: absolute;
     top: 0px;
@@ -9,15 +5,65 @@
     height: 9.2vw;
     border: 3px solid black;;
     border-radius: 5px;
-    margin-top: 4vw;
+    margin-top: 7vw;
 }
 
-.foundation-symbol {
+@mixin foundation-symbol {
     background: url("../../assets/spade.png") transparent;
     color: black;
     background-repeat: no-repeat;
     background-position: center;
     background-size: 50%;
     display: inline-block;
-    margin-left: 40vw;
+}
+
+.foundation-symbol-0 {
+    @include foundation-symbol;
+    margin-left: 19vw;
+}
+
+.foundation-symbol-1 {
+    @include foundation-symbol;
+    margin-left: 26.2vw;
+}
+
+.foundation-symbol-2 {
+    @include foundation-symbol;
+    margin-left: 33.5vw;
+}
+
+.foundation-symbol-3 {
+    @include foundation-symbol;
+    margin-left: 40.9vw;
+}
+
+.foundation-symbol-4 {
+    @include foundation-symbol;
+    margin-left: 48.2vw;
+}
+
+.foundation-symbol-5 {
+    @include foundation-symbol;
+    margin-left: 55.5vw;
+}
+
+.foundation-symbol-6 {
+    @include foundation-symbol;
+    margin-left: 62.8vw;
+}
+
+.foundation-symbol-7 {
+    @include foundation-symbol;
+    margin-left: 70vw;
+}
+
+.completed {
+    background: url("../../assets/card-back.jpg") transparent;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 120%;
+    border-top: 0px;
+    display: inline-block;
+    border: 4px solid rgb(8, 189, 90);
+
 }

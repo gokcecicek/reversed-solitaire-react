@@ -1,5 +1,5 @@
-import React from 'react';
-import './common.scss';
+import React from "react";
+import "./common.scss";
 
 const Background = () => {
     return(

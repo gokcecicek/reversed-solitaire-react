@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import getWastePileToDeck from "../Stock/WastePile";
 
 //Function that serves to deal cards for each set on the table
