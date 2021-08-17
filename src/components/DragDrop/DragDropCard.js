@@ -70,8 +70,13 @@ export const endDrag = (card, table, setTable, move, setMove, score, setScore) =
   //If the target card is the card holder then the card holder is removed
   //Drag is allowed for each card
   if (table.targetCard === "") {
+    console.log("deneme", checkSelectedCardMove(table.selectedCard, table.selectedDeck));
     if(checkSelectedCardMove(table.selectedCard, table.selectedDeck)){
       transferCardsToAnother(table.targetDeck, table.selectedDeck, table.selectedCard, setTable, table);
+      IsCompleteSet(table.targetDeck, table, setTable, score, setScore);
+      deleteCardSelection(table, setTable);
+    }
+    else{
       deleteCardSelection(table, setTable);
     }
   }
@@ -91,7 +96,6 @@ export const endDrag = (card, table, setTable, move, setMove, score, setScore) =
         table);
       IsCompleteSet(table.targetDeck, table, setTable, score, setScore);
       deleteCardSelection(table, setTable);
-      console.log(table);
       setMove(move + 1);
       //Five times the number of cards swiped is earned
       setScore(score += (table.selected.length * 5));
