@@ -19,7 +19,9 @@ $card-suit: url("../../assets/spade.png") #ffffff;
   border: $card-border;
   border-radius: $card-border-radius;
 }
-
+.card:hover {
+  box-shadow: 0 4px 8px 0 greenyellow;
+}
 .card-closed {
   background: $card-back;
   background-size: contain;

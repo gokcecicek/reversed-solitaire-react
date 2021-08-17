@@ -9,6 +9,7 @@ $background-image: url(../../assets/background.jpg);
     top:0px;
     left:0px;
     z-index: -99;
+    overflow-y: scroll;
 }
 
 //NAVBAR
@@ -37,6 +38,8 @@ $background-image: url(../../assets/background.jpg);
     font-weight: bold;
     margin-left: 4vw;
 }
+
+
 
 .header-right .restart-btn {
     font-size: 16px;  

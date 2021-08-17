@@ -32,7 +32,6 @@ export const transferCardsToAnother = function (toDeck, fromDeck, fromCard, setT
   var from = tableDecks.indexOf(fromDeck);
   var cardIndex = tableDecks[from].indexOf(fromCard);
   var movedCards = tableDecks[from].splice(cardIndex);
-
   movedCards.forEach((card) => {
     tableDecks[to].push(card);
   });

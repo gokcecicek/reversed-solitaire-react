@@ -4,6 +4,7 @@ import { cardSelection, deleteCardSelection } from "./CardSelection";
 
 //For the card is at the cursor level when the user holds the card to drag
 export const beginDrag = (event, card, deck, table, setTable) => {
+ /*  setTime(); */
   event.dataTransfer.setData("text", event.target.id);
   event.dataTransfer.setDragImage(new Image("0", "0"), -10, -10);
   setTable((previousSet) => ({
@@ -70,8 +71,10 @@ export const endDrag = (card, table, setTable, move, setMove) => {
   //If the target card is the card holder then the card holder is removed
   //Drag is allowed for each card
   if (table.targetCard === "") {
-    transferCardsToAnother(table.targetDeck, table.selectedDeck, table.selectedDeck, setTable, table);
-    deleteCardSelection(table, setTable);
+    if(checkSelectedCardMove(table.selectedCard, table.selectedDeck)){
+      transferCardsToAnother(table.targetDeck, table.selectedDeck, table.selectedCard, setTable, table);
+      deleteCardSelection(table, setTable);
+    }
   }
   //If the target card is not card holder
   if (checkTargetRank(table.targetCard, table)) {

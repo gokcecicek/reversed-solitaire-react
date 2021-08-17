@@ -33,8 +33,8 @@ function Home() {
 
   return (
     <div className="background">
+      <Header move={move}></Header>
       <div className="container">
-        <Header move={move}></Header>
         <Foundation></Foundation>
         <Tableau table={table} setTable={setTable} move={move} setMove={setMove}></Tableau>
         {cards.hasOwnProperty("decks") && table.decks[10].length > 0 && (
@@ -45,5 +45,6 @@ function Home() {
 
   );
 }
+
 
 export default Home;

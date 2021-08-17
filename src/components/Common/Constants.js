@@ -1,3 +1,4 @@
+
 const getConstants =  {    
     //TABLEAU
     TABLEAU_COLUMN_NUM: 10,
