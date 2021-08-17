@@ -6,7 +6,7 @@ import TableauPile from "../Tableau/TableauPile";
 import Tableau from "../Tableau/Tableau";
 import Foundation from "../Foundation/Foundation";
 import Header from "./Header";
-
+import GameTimer from "../Common/GameTimer";
 function Home() {
   const [cards, setcards] = useState({});
   const [move, setMove] = useState([]);

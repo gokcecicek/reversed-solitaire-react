@@ -4,7 +4,6 @@ import { cardSelection, deleteCardSelection } from "./CardSelection";
 
 //For the card is at the cursor level when the user holds the card to drag
 export const beginDrag = (event, card, deck, table, setTable) => {
- /*  setTime(); */
   event.dataTransfer.setData("text", event.target.id);
   event.dataTransfer.setDragImage(new Image("0", "0"), -10, -10);
   setTable((previousSet) => ({

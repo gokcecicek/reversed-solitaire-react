@@ -39,9 +39,7 @@ export const IsCompleteSet = (deck, table, setTable) => {
 
 export const CompleteFoundation = () => {
   var foundation = document.getElementsByClassName("foundation");
-  console.log(foundation);
   var childFoundations = foundation[0].children;
-  console.log(childFoundations);
   if(childFoundations.length > 0){
     for(let i=0; i<childFoundations.length; i++){
       let isFoundationFill = childFoundations[i].classList.contains("completed");

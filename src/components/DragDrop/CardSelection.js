@@ -1,4 +1,5 @@
 import getConstants from "../Common/Constants";
+import GameTimer from "../Common/GameTimer";
 import { IsCompleteSet } from "./CardQueue";
 import { checkSelectedCardMove, transferCardsToAnother } from "./Move";
 
@@ -10,6 +11,7 @@ export const getCardRank = (cardRank) => {
 
 //Card selection is preserved
 export const cardSelection= (card, deck, cardHolder, table, setTable) => {
+  GameTimer("start");
   if (cardHolder && table.selectedCard !== "") {
     if (table.selectedCard.rank === "K") {
       transferCardsToAnother(deck, table.selectedDeck, table.selectedCard, setTable, table);

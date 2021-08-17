@@ -4,7 +4,11 @@ function Header(props) {
     return(
         <div class="header">
             <div className="header-left">
-                <p>Move: {move}</p>
+                <div class="timer">
+                    <label>Timer: </label>
+                    <span>00:00</span>
+                </div>
+                <label>Moves: {move}</label>
             </div>
             <div class="header-right">
                 <button className="restart-btn" onClick="">

@@ -31,12 +31,21 @@ $background-image: url(../../assets/background.jpg);
     overflow: hidden;
 }
 
-.header-left p {
+.header-left > label, .timer span, .timer label {
     font-size: 16px;
     color: white;
     font-family: inherit;
     font-weight: bold;
     margin-left: 4vw;
+}
+
+.timer span{
+    margin-left: 0;
+}
+
+.header-left >label, .timer {
+    margin-top: 1vw;
+    float: left;
 }
 
 
