@@ -31,7 +31,7 @@ $background-image: url(../../assets/background.jpg);
     overflow: hidden;
 }
 
-.header-left > label, .timer span, .timer label {
+.header-left > label, .timer span, .timer label, .header-center > label {
     font-size: 16px;
     color: white;
     font-family: inherit;
@@ -43,7 +43,7 @@ $background-image: url(../../assets/background.jpg);
     margin-left: 0;
 }
 
-.header-left >label, .timer {
+.header-left >label, .timer, .header-center > label {
     margin-top: 1vw;
     float: left;
 }

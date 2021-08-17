@@ -6,10 +6,11 @@ import TableauPile from "../Tableau/TableauPile";
 import Tableau from "../Tableau/Tableau";
 import Foundation from "../Foundation/Foundation";
 import Header from "./Header";
-import GameTimer from "../Common/GameTimer";
+
 function Home() {
   const [cards, setcards] = useState({});
   const [move, setMove] = useState([]);
+  const [score, setScore] = useState([]);
   const [table, setTable] = useState({
     cards: [],
     decks: [],
@@ -24,6 +25,7 @@ function Home() {
     const orderedSet = TableauPile(shuffledCards);
     setcards(orderedSet);
     setMove(0);
+    setScore(0);
     setTable((previousSet) => ({
       ...previousSet,
       cards: orderedSet.cards,
@@ -33,12 +35,16 @@ function Home() {
 
   return (
     <div className="background">
-      <Header move={move}></Header>
+      <Header move={move} score={score}></Header>
       <div className="container">
         <Foundation></Foundation>
-        <Tableau table={table} setTable={setTable} move={move} setMove={setMove}></Tableau>
+        <Tableau 
+        table={table} setTable={setTable}
+         move={move} setMove={setMove} 
+         score={score} setScore={setScore}>
+         </Tableau>
         {cards.hasOwnProperty("decks") && table.decks[10].length > 0 && (
-        <Stock table={table} setTable={setTable}></Stock>
+        <Stock table={table} setTable={setTable} move={move} setMove={setMove}></Stock>
         )}
         </div>
     </div>

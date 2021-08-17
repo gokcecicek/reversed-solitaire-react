@@ -8,7 +8,7 @@ import { beginDrag, onDrag, enterDrag, endDrag } from "../DragDrop/DragDropCard"
 //Where cards are lined up in sets on the table
 function Tableau(props) {
     
-    const { table, setTable, move, setMove } = props;
+    const { table, setTable, move, setMove, score, setScore } = props;
 
     return (
         <div className="tableau-container">
@@ -16,7 +16,7 @@ function Tableau(props) {
                 <React.Fragment>
                 {deck.length === 0 ? (
                     <div id="holder" key={index + "0"} onClick={() => {
-                        cardSelection("", deck, true, table, setTable);
+                        cardSelection("", deck, true, table, setTable, score, setScore);
                       }}
                       onDragEnter={(e) => {
                         enterDrag(table, setTable, "", deck);
@@ -33,7 +33,7 @@ function Tableau(props) {
                 onDragStart={(e) => { beginDrag(e, card, deck, table, setTable); }}
                 onDrag={(e) => { onDrag(e, table); }}
                 onDragEnter={(e) => { enterDrag(table, setTable, card, deck); }}
-                onDragEnd={(e) => { endDrag(card, table, setTable, move, setMove); }}>
+                onDragEnd={(e) => { endDrag(card, table, setTable, move, setMove, score, setScore); }}>
                     <Card key={card.rank + " " + card.suit + " " + card.deck} card={card}
                     isSelected={card.isSelected} isClosed={card.isClosed}/>
                     </div>

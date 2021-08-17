@@ -12,14 +12,15 @@ export const IsExpectedSet = (deck) => {
   const expectedArray = getConstants.COMPLETE_QUEUE;
   let isOrderSet = isEqual(expectedArray, ranks.slice(-13));
   if (isOrderSet) {
-    CompleteFoundation(); //burası yeni
-    return ranks.length - 13;
+    ranks.length += - 13;
+    CompleteFoundation();
+    return;
   }
   return false;
 };
 
 //Checking whether the set sequence is correct or not
-export const IsCompleteSet = (deck, table, setTable) => {
+export const IsCompleteSet = (deck, table, setTable, score, setScore) => {
   var len = IsExpectedSet(deck);
   if (len !== false) {
     var tableDecks = [...table.decks];
@@ -34,6 +35,8 @@ export const IsCompleteSet = (deck, table, setTable) => {
       decks: tableDecks,
       hands: hand + 1,
     }));
+    //50 points are earned if a set is completed
+    setScore(score + 50);
   }
 };
 

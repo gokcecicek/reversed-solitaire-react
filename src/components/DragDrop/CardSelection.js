@@ -10,12 +10,14 @@ export const getCardRank = (cardRank) => {
 };
 
 //Card selection is preserved
-export const cardSelection= (card, deck, cardHolder, table, setTable) => {
-  GameTimer("start");
+export const cardSelection= (card, deck, cardHolder, table, setTable, score, setScore) => {
+  if(document.querySelector('.timer span').textContent === "00:00"){
+    GameTimer("start");
+  }
   if (cardHolder && table.selectedCard !== "") {
     if (table.selectedCard.rank === "K") {
       transferCardsToAnother(deck, table.selectedDeck, table.selectedCard, setTable, table);
-      IsCompleteSet(deck, table, setTable);
+      IsCompleteSet(deck, table, setTable, score, setScore);
       deleteCardSelection(table, setTable);
     }
   }
