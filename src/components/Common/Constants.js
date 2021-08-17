@@ -23,5 +23,6 @@ const getConstants =  {
         Q: "2",
         K: "1"
     }
+
 }
 export default getConstants;

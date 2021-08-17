@@ -6,7 +6,8 @@ function Stock(props) {
 
     const { table, setTable, move, setMove } = props;
         return (
-            <div onClick={(stockEvent) => { getWastePileToDeck(table, setTable, move, setMove)}} className="card card-closed card-stock">
+            <div id="stockCard" onClick={(stockEvent) => { 
+                getWastePileToDeck(table, setTable, move, setMove)}} className="card card-closed card-stock">
             </div>
         );
 }

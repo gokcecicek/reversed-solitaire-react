@@ -14,18 +14,18 @@ export const IsExpectedSet = (deck) => {
   if (isOrderSet) {
     ranks.length += - 13;
     CompleteFoundation();
-    return;
+    return true;
   }
   return false;
 };
 
 //Checking whether the set sequence is correct or not
 export const IsCompleteSet = (deck, table, setTable, score, setScore) => {
-  var len = IsExpectedSet(deck);
-  if (len !== false) {
+  var expectedSet = IsExpectedSet(deck);
+  if (expectedSet) {
     var tableDecks = [...table.decks];
     var curSetIndex = tableDecks.indexOf(deck);
-    tableDecks[curSetIndex].splice(len);
+    tableDecks[curSetIndex].splice(expectedSet);
     var hand = table.hands;
     if (tableDecks[curSetIndex].length !== 0) {
       tableDecks[curSetIndex][tableDecks[curSetIndex].length - 1].isClosed = false;
@@ -35,8 +35,9 @@ export const IsCompleteSet = (deck, table, setTable, score, setScore) => {
       decks: tableDecks,
       hands: hand + 1,
     }));
+    console.log("son set");
     //50 points are earned if a set is completed
-    setScore(score + 50);
+    setScore(score += 50);
   }
 };
 

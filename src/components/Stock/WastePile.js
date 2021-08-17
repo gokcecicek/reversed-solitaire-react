@@ -1,5 +1,5 @@
 import GameTimer from "../Common/GameTimer";
-
+import "../Cards/Card.scss";
 //The face of the dealt card is turned over
 //Separates 10 cards from the remaining deck and push into each set
 function WastePile(table, setTable, move, setMove) {
@@ -20,9 +20,8 @@ function WastePile(table, setTable, move, setMove) {
             setTable((previousSet) => ({
                 ...previousSet,
                 decks: currentDeck,
-            })) //what if set completed?
+            })) 
         );
     }
 }
-
 export default WastePile;

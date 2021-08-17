@@ -8,6 +8,27 @@
     margin-top: 7vw;
 }
 
+
+@media screen and (max-width: 600px) and (min-width: 400px) {
+    .foundation-container {
+        top: 5%;
+        margin-left: 70px;
+    }
+    .foundation {
+        margin-left: 70px;
+    }
+}
+
+@media screen and (max-width: 1000px) and (min-width: 600px) {
+    .foundation-container {
+        top: 5%;
+        margin-left: 70px;
+    }
+    .foundation {
+        margin-left: 70px;
+    }
+  }
+
 @mixin foundation-symbol {
     background: url("../../assets/spade.png") transparent;
     color: black;
@@ -65,5 +86,4 @@
     border-top: 0px;
     display: inline-block;
     border: 4px solid rgb(8, 189, 90);
-
 }

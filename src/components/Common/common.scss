@@ -9,7 +9,7 @@ $background-image: url(../../assets/background.jpg);
     top:0px;
     left:0px;
     z-index: -99;
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 
 //NAVBAR
@@ -18,7 +18,7 @@ $background-image: url(../../assets/background.jpg);
     right: 0;
     left: 0;
     overflow: hidden;
-    background-color: #333;
+    background-color: black;
 }
 
 .header-right {
@@ -48,8 +48,6 @@ $background-image: url(../../assets/background.jpg);
     float: left;
 }
 
-
-
 .header-right .restart-btn {
     font-size: 16px;  
     border: none;
@@ -62,7 +60,7 @@ $background-image: url(../../assets/background.jpg);
 }
 
 .header-right:hover .restart-btn {
-    background-color: rgb(8, 189, 90);
+    background-color: rgb(65, 226, 73);
 }
 
 //TABLEAU
@@ -70,5 +68,40 @@ $background-image: url(../../assets/background.jpg);
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+}
+
+@media screen and (max-width: 600px) and (min-width: 400px) {
+    .tableau-container {
+        padding-top: 50px;
+        margin-left: 0px;
+    }
+
+    .header-left > label, .timer span, .timer label, .header-center > label{
+        font-size: 8px;
+    }
+    .header-right .restart-btn {
+        font-size: 8px;
+    }
+    .header-left >label, .header-center > label{
+        padding-top: 9px;
+    }
+
+}
+
+@media screen and (max-width: 1000px) and (min-width: 600px) {
+    .tableau-container {
+        padding-top: 50px;
+        margin-left: 60px;
+    }
+
+    .header-left > label, .timer span, .timer label, .header-center > label{
+        font-size: 12px;
+    }
+    .header-right .restart-btn {
+        font-size: 12px;
+    }
+    .header-left >label, .header-center > label{
+        padding-top: 5px;
+    }
 }
   

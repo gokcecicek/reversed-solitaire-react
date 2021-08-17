@@ -89,7 +89,7 @@ export const endDrag = (card, table, setTable, move, setMove, score, setScore) =
         table.selectedCard,
         setTable,
         table);
-      IsCompleteSet(table.targetDeck, table, setTable);
+      IsCompleteSet(table.targetDeck, table, setTable, score, setScore);
       deleteCardSelection(table, setTable);
       console.log(table);
       setMove(move + 1);

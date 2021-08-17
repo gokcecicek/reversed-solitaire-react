@@ -2,9 +2,9 @@ function Header(props) {
     const { move, score } = props;
 
     return(
-        <div class="header">
+        <div className="header">
             <div className="header-left">
-                <div class="timer">
+                <div className="timer">
                     <label>Timer: </label>
                     <span>00:00</span>
                 </div>
@@ -13,7 +13,7 @@ function Header(props) {
             <div className="header-center">
                 <label>Score: {score}</label>
             </div>
-            <div class="header-right">
+            <div className="header-right">
                 <button className="restart-btn" onClick={() => "playAgain()"}>
                     <strong>NEW GAME</strong>
                 </button>

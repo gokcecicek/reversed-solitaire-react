@@ -44,7 +44,10 @@ function Home() {
          score={score} setScore={setScore}>
          </Tableau>
         {cards.hasOwnProperty("decks") && table.decks[10].length > 0 && (
-        <Stock table={table} setTable={setTable} move={move} setMove={setMove}></Stock>
+        <Stock 
+        table={table} setTable={setTable} 
+        move={move} setMove={setMove}>
+        </Stock>
         )}
         </div>
     </div>
