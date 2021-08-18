@@ -5,7 +5,6 @@ import getConstants from "../Common/Constants";
 //The first 4 sets will be 6, the next 6 will be 5
 //There are a total of 54 cards on the table
 function TableauPile(shuffleDeck) {
-    console.log(shuffleDeck);
     let cardsOnTable = shuffleDeck.slice(0, 54);
     let decks = chunk(cardsOnTable, 5);
     decks[10] = shuffleDeck.slice(50);
@@ -16,8 +15,6 @@ function TableauPile(shuffleDeck) {
         }
         decks[i][decks[i].length - 1].isClosed = false;
     }
-    console.log("deck", decks);
-    console.log(shuffleDeck);
     return {
         decks: decks,
         cards: shuffleDeck,
