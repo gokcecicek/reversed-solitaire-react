@@ -11,11 +11,9 @@ export const IsExpectedSet = (deck) => {
     ranks.push(getCardRank(card.rank));
   });
   const expectedArray = getConstants.COMPLETE_QUEUE;
-  console.log("ranks", ranks);
   let isOrderSet = isEqual(expectedArray, ranks.slice(-13));
-  console.log("orderset", isOrderSet);
   if (isOrderSet) {
-    return ranks.length - 13;;
+    return ranks.length - 13;
   }
   return false;
 };

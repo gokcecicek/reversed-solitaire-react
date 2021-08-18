@@ -3,6 +3,8 @@ import { getCardRank } from "./CardSelection";
 // Checks whether the card/cards is movable or not.
 export const checkSelectedCardMove = (card, deck) => {
   var tableDecks = [...deck]; 
+  console.log("c",card);
+  console.log("deck", deck);
   var movingCards = tableDecks.slice(deck.indexOf(card));
   let ranks = [];
   movingCards.forEach((curCard) => {
@@ -10,7 +12,7 @@ export const checkSelectedCardMove = (card, deck) => {
   });
   var curRank = getCardRank(card.rank);
   for (let i = 1; i < ranks.length; i++) {
-    if (curRank - ranks[i] !== 1) return false;
+    if (curRank - ranks[i] !== 1){ return false; }
     curRank = ranks[i];
   }
   return true;
@@ -18,6 +20,8 @@ export const checkSelectedCardMove = (card, deck) => {
 
 //Checks whether the selected card can be placed on the desired target
 export const checkTargetRank = (target, table) => {
+  console.log("target",target);
+  console.log("table", table);
   let targetIsFit = getCardRank(target.rank) - getCardRank(table.selectedCard.rank) === 1;
   if (targetIsFit) {
     return true;
