@@ -35,6 +35,14 @@ export const transferCardsToAnother = function (toDeck, fromDeck, fromCard, setT
   movedCards.forEach((card) => {
     tableDecks[to].push(card);
   });
+
+  try {
+    if (tableDecks[from][tableDecks[from].length - 1].isClosed === true) {
+      tableDecks[from][tableDecks[from].length - 1].isClosed = false;
+    }
+  } catch (error) {
+    console.log(error);
+  }
   
   setTable((previousSet) => ({
     ...previousSet,

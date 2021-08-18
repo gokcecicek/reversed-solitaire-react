@@ -7,7 +7,6 @@ function App() {
       <div className="App">
         <ToastContainer
         autoClose={2000}
-        position="top-center"
         className="toast-container"
         toastClassName="dark-toast"
       />
