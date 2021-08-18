@@ -12,7 +12,7 @@ function Foundation() {
     });
 
     return(
-        <div className="foundation">
+        <div className="foundation" data-testid="foundation-testid">
             {foundations}
         </div>
         );

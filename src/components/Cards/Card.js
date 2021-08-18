@@ -12,9 +12,9 @@ function Card({ card, isSelected, isClosed }) {
     isClosed ? setClosed(" card-closed") : setClosed(" " + card.suit);
     isSelected ? setSelected(" card-selected") : setSelected("");
   }, [isClosed, isSelected, card.suit])
-  
+
   return (
-      <div className={"card" + closed + select} >
+      <div className={"card" + closed + select} data-testid="card-testid">
         <div className="card-container card-rank-left">
         {card.rank}
         <div className="spade-bottom-rank">{getConstants.SYMBOL}</div>

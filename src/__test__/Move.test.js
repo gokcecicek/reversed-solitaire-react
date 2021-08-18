@@ -1,7 +1,7 @@
 import { checkSelectedCardMove, checkTargetRank } from "../components/DragDrop/Move";
 
 //Checks whether the card/cards is movable test
-const card = [{isClosed: false, rank: "10"}];
+const card = {isClosed: false, rank: "10"};
 
 const movableDeck = [
     {isClosed: true, rank: "K"},
@@ -9,7 +9,7 @@ const movableDeck = [
     {isClosed: false, rank: "J"}
 ];
 
-describe("Checks whether the ordered cards is movable", () => {
+describe("Checks whether the cards is movable", () => {
     it('should return true if cards movable', () => {
         let isMovable = checkSelectedCardMove(card, movableDeck);
         expect(isMovable).toEqual(true);

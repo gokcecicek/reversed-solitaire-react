@@ -34,7 +34,7 @@ function Home() {
   }, []);
 
   return (
-    <div className="background">
+    <div className="background" data-testid="background-testid">
       <Header move={move} score={score}></Header>
       <div className="container">
         <Foundation></Foundation>

@@ -1,5 +1,6 @@
 import { IsExpectedSet } from '../components/DragDrop/CardQueue';
 
+//Completion test for ordered and unordered cards
 const expectedPile = [
     {rank: "A"},
     {rank: "A"},
@@ -47,3 +48,5 @@ describe("Unordered stack of cards completion test", () => {
         expect(completionSet).toBe(false);
     });
 });
+
+
