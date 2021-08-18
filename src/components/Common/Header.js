@@ -14,9 +14,9 @@ function Header(props) {
                 <label>Score: {score}</label>
             </div>
             <div className="header-right">
-                {/* <button className="restart-btn" onClick={() => "playAgain()"}>
+                <button className="restart-btn" onClick={() => "playAgain()"}>
                     <strong>NEW GAME</strong>
-                </button> */}
+                </button> 
             </div>
         </div>
     );
