@@ -1,9 +1,6 @@
 import { IsCompleteSet} from "./CardQueue";
 import { checkTargetRank, checkSelectedCardMove, transferCardsToAnother } from "./Move";
 import { cardSelection, deleteCardSelection } from "./CardSelection";
-import ToastMessage from "../Common/ToastMessage";
-import getConstants from "../Common/Constants";
-import { toast } from "react-toastify";
 
 //For the card is at the cursor level when the user holds the card to drag
 export const beginDrag = (event, card, deck, table, setTable) => {
