@@ -22,7 +22,11 @@ const getConstants =  {
         J: "3",
         Q: "2",
         K: "1"
-    }
+    },
+
+    //TOAST MESSAGES
+    MULTICARD_NOT_SEQUENTIAL: "Multi-card selection is not sequential.",
+    SET_COMPLETED: "One set successfully completed.",
 
 }
 export default getConstants;

@@ -1,5 +1,6 @@
 import getConstants from "../Common/Constants";
 import GameTimer from "../Common/GameTimer";
+import ToastMessage from "../Common/ToastMessage";
 import { IsCompleteSet } from "./CardQueue";
 import { checkSelectedCardMove, transferCardsToAnother } from "./Move";
 
@@ -42,6 +43,9 @@ export const cardSelection= (card, deck, cardHolder, table, setTable, score, set
         selectedCard: card,
         selectedDeck: deck,
       }));
+    }
+    else{
+      ToastMessage.error(getConstants.MULTICARD_NOT_SEQUENTIAL);
     }
   }
 };

@@ -1,6 +1,9 @@
 import { IsCompleteSet} from "./CardQueue";
 import { checkTargetRank, checkSelectedCardMove, transferCardsToAnother } from "./Move";
 import { cardSelection, deleteCardSelection } from "./CardSelection";
+import ToastMessage from "../Common/ToastMessage";
+import getConstants from "../Common/Constants";
+import { toast } from "react-toastify";
 
 //For the card is at the cursor level when the user holds the card to drag
 export const beginDrag = (event, card, deck, table, setTable) => {
@@ -70,7 +73,6 @@ export const endDrag = (card, table, setTable, move, setMove, score, setScore) =
   //If the target card is the card holder then the card holder is removed
   //Drag is allowed for each card
   if (table.targetCard === "") {
-    console.log("deneme", checkSelectedCardMove(table.selectedCard, table.selectedDeck));
     if(checkSelectedCardMove(table.selectedCard, table.selectedDeck)){
       transferCardsToAnother(table.targetDeck, table.selectedDeck, table.selectedCard, setTable, table);
       IsCompleteSet(table.targetDeck, table, setTable, score, setScore);
@@ -105,7 +107,7 @@ export const endDrag = (card, table, setTable, move, setMove, score, setScore) =
       notMatchTargetEndDrag(table, setTable);
     }
   } 
-  else { 
+  else {
     notMatchTargetEndDrag(table, setTable);
   }
 };
