@@ -1,4 +1,4 @@
-import GameTimer from "../Common/GameTimer";
+import { GameTimer } from "../Common/Header";
 import "../Cards/Card.scss";
 //The face of the dealt card is turned over
 //Separates 10 cards from the remaining deck and push into each set

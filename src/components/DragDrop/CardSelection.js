@@ -1,5 +1,5 @@
 import getConstants from "../Common/Constants";
-import GameTimer from "../Common/GameTimer";
+import { GameTimer } from "../Common/Header";
 import ToastMessage from "../Common/ToastMessage";
 import { IsCompleteSet } from "./CardQueue";
 import { checkSelectedCardMove, transferCardsToAnother } from "./Move";

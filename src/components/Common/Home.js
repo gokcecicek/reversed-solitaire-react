@@ -8,7 +8,7 @@ import Foundation from "../Foundation/Foundation";
 import Header from "./Header";
 
 function Home() {
-  const [cards, setcards] = useState({});
+  const [cards, setCards] = useState({});
   const [move, setMove] = useState([]);
   const [score, setScore] = useState([]);
   const [table, setTable] = useState({
@@ -23,7 +23,7 @@ function Home() {
   useEffect(() => {
     const shuffledCards = ShuffleDeck();
     const orderedSet = TableauPile(shuffledCards);
-    setcards(orderedSet);
+    setCards(orderedSet);
     setMove(0);
     setScore(0);
     setTable((previousSet) => ({
@@ -33,9 +33,14 @@ function Home() {
     }));
   }, []);
 
+  console.log(table);
   return (
     <div className="background" data-testid="background-testid">
-      <Header move={move} score={score}></Header>
+      <Header 
+      setTable={setTable} setCards={setCards} 
+      move={move} setMove={setMove}
+      score={score} setScore={setScore}>
+      </Header>
       <div className="container">
         <Foundation></Foundation>
         <Tableau 

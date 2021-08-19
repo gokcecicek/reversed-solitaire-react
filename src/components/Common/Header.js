@@ -1,5 +1,12 @@
+import ShuffleDeck from "../Tableau/Shuffle";
+import TableauPile from "../Tableau/TableauPile";
+
+//Global variables
+let clock = 0;
+let time = 0;
+
 function Header(props) {
-    const { move, score } = props;
+    const { setTable, setCards, move, setMove, score, setScore } = props;
 
     return(
         <div className="header" data-testid="header-testid">
@@ -14,7 +21,7 @@ function Header(props) {
                 <label>Score: {score}</label>
             </div>
             <div className="header-right">
-                <button className="restart-btn" onClick={() => "playAgain()"}>
+                <button className="restart-btn" onClick={() =>{ RestartGame(setTable, setCards, setMove, setScore); }}>
                     <strong>NEW GAME</strong>
                 </button> 
             </div>
@@ -22,3 +29,50 @@ function Header(props) {
     );
 }
 export default Header;
+
+export const GameTimer = (action) => {
+    var timer = document.querySelector('.timer span');
+    let minutes= 0;
+    let seconds= 0;
+    if(action === "start"){
+        
+        clock = setInterval(function() {
+            time++;
+            //Parse minutes and seconds
+            minutes = parseInt(time / 60, 10);
+            seconds = parseInt(time % 60, 10);
+            minutes = minutes < 10 ? "0" + minutes : minutes;
+            seconds = seconds < 10 ? "0" + seconds : seconds;
+            //Output
+            timer.textContent = minutes + ':' + seconds;
+        }, 1000);
+    }
+    else if(action === "stop"){
+        clearInterval(clock);
+        timer.textContent = "00:00";
+        time = 0;
+    }
+    return;
+}
+
+export const RestartGame = (setTable, setCards, setMove, setScore) => {
+    //Table reset
+    setTable((previousSet) => ({
+      ...previousSet,
+      cards: [],
+      decks: [],
+    }));
+
+    //Shuffle cards and set table shuffled cards
+    const shuffledCards = ShuffleDeck();
+    const orderedSet = TableauPile(shuffledCards);
+    setCards(orderedSet);
+    setMove(0);
+    setScore(0);
+    GameTimer("stop");
+    setTable((previousSet) => ({
+      ...previousSet,
+      cards: orderedSet.cards,
+      decks: orderedSet.decks,
+    }));
+}

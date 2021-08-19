@@ -1,6 +1,7 @@
 import { toast } from 'react-toastify';
 import "../Common/common.scss";
 import 'react-toastify/dist/ReactToastify.css'; 
+
 const ToastMessage = {
     success(message, options = {}){
         return toast.success(message, {position: toast.POSITION.TOP_RIGHT});
