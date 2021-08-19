@@ -22,7 +22,7 @@ export const IsExpectedSet = (deck) => {
 export const IsCompleteSet = (deck, table, setTable, score, setScore) => {
   var expectedSet = IsExpectedSet(deck);
   if (expectedSet !== false) {
-    CompleteFoundation();
+    CompleteFoundation("foundation", false);
     var tableDecks = [...table.decks];
     var curSetIndex = tableDecks.indexOf(deck);
     tableDecks[curSetIndex].splice(expectedSet);
@@ -41,14 +41,17 @@ export const IsCompleteSet = (deck, table, setTable, score, setScore) => {
   }
 };
 
-export const CompleteFoundation = () => {
-  var foundation = document.getElementsByClassName("foundation");
+export const CompleteFoundation = (parentClass, gameIsOver) => {
+  var foundation = document.getElementsByClassName(parentClass);
   var childFoundations = foundation[0].children;
   if(childFoundations.length > 0){
     for(let i=0; i<childFoundations.length; i++){
       let isFoundationFill = childFoundations[i].classList.contains("completed");
-      if(!isFoundationFill) {
+      if(!isFoundationFill && !gameIsOver) {
         return childFoundations[i].classList.add("completed");
+      }
+      else if(gameIsOver){
+        return childFoundations[i].classList.remove("completed");
       }
     }
   }

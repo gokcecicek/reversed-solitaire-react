@@ -1,3 +1,4 @@
+import { CompleteFoundation } from "../DragDrop/CardQueue";
 import ShuffleDeck from "../Tableau/Shuffle";
 import TableauPile from "../Tableau/TableauPile";
 
@@ -56,7 +57,7 @@ export const GameTimer = (action) => {
 }
 
 export const RestartGame = (setTable, setCards, setMove, setScore) => {
-    //Table reset
+    //Table clear
     setTable((previousSet) => ({
       ...previousSet,
       cards: [],
@@ -70,9 +71,13 @@ export const RestartGame = (setTable, setCards, setMove, setScore) => {
     setMove(0);
     setScore(0);
     GameTimer("stop");
+    CompleteFoundation("foundation", true);
     setTable((previousSet) => ({
       ...previousSet,
       cards: orderedSet.cards,
       decks: orderedSet.decks,
     }));
+
+    //Foundation clear
+
 }
