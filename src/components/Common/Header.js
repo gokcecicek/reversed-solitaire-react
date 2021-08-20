@@ -10,7 +10,7 @@ function Header(props) {
     const { setTable, setCards, move, setMove, score, setScore, gameOver, setGameOver } = props;
 
     return(
-        <div className="header" data-testid="header-testid">
+        <div className="header shadow" data-testid="header-testid">
             <div className="header-left">
                 <div className="timer">
                     <label>Timer: </label>

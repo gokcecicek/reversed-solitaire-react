@@ -3,9 +3,11 @@
     top: 0px;
     width: 6vw;
     height: 9.2vw;
-    border: 3px solid black;;
+    border: 3px solid white;
     border-radius: 5px;
     margin-top: 7vw;
+    background-color: black;
+    opacity: 0.5;
 }
 
 
@@ -30,8 +32,7 @@
   }
 
 @mixin foundation-symbol {
-    background: url("../../assets/spade.png") transparent;
-    color: black;
+    background-image: url("../../assets/spade.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: 50%;
@@ -79,7 +80,7 @@
 }
 
 .completed {
-    background: url("../../assets/back.png") transparent;
+    background: url("../../assets/trendyol_card_back.png") transparent;
     background-repeat: no-repeat;
     background-position: center;
     background-size: 120%;
