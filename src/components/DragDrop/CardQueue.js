@@ -4,6 +4,7 @@ import getConstants from "../Common/Constants";
 import { getCardRank } from "./CardSelection";
 import ToastMessage from "../Common/ToastMessage";
 import { CompleteElement } from "../Foundation/Foundation";
+import { checkAllSetCompleted } from "../Foundation/Foundation";
 
 //If the set sequence is complete, remove that set
 export const IsExpectedSet = (deck) => {

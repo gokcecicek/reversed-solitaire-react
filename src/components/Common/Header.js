@@ -76,7 +76,9 @@ export const RestartGame = (setTable, setCards, setMove, setScore, gameOver, set
     setScore(0);
     GameTimer("stop");
     CompleteElement("foundation", true);
-    setGameOver(gameOver => !gameOver);
+    if(gameOver === true){
+        setGameOver(gameOver => !gameOver);
+    }
     setTable((previousSet) => ({
       ...previousSet,
       cards: orderedSet.cards,

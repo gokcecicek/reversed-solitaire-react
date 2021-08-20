@@ -19,7 +19,7 @@ export function GetConfetti() {
       <Confetti
       width={width}
       height={height}
-      data-testid="confetti-testid"
+      numberOfPieces="800"
     />
   )
 };

@@ -56,7 +56,9 @@ function Home() {
           {cards.hasOwnProperty("decks") && table.decks[10].length > 0 && (
           <Stock 
           table={table} setTable={setTable} 
-          move={move} setMove={setMove}>
+          move={move} setMove={setMove}
+          score={score} setScore={setScore}
+          gameOver={gameOver} setGameOver={setGameOver}>
           </Stock>)}
         </div>
       </div>

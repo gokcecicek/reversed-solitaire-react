@@ -99,7 +99,7 @@ export const endDrag = (card, table, setTable, move, setMove, score, setScore, g
       setMove(move + 1);
       //Five times the number of cards swiped is earned
       setScore(score += (table.selected.length * 5));
-      if(!checkAllSetCompleted("foundation")){
+      if(checkAllSetCompleted("foundation")){
         setGameOver(gameOver => !gameOver);
       }
       return;
