@@ -6,11 +6,13 @@ import TableauPile from "../Tableau/TableauPile";
 import Tableau from "../Tableau/Tableau";
 import Foundation from "../Foundation/Foundation";
 import Header from "./Header";
+import { CheckForWin } from "./GameOver";
 
 function Home() {
   const [cards, setCards] = useState({});
   const [move, setMove] = useState([]);
   const [score, setScore] = useState([]);
+  const [gameIsOver, setGameIsOver] = useState(false);
   const [table, setTable] = useState({
     cards: [],
     decks: [],
@@ -26,6 +28,7 @@ function Home() {
     setCards(orderedSet);
     setMove(0);
     setScore(0);
+    setGameIsOver(false);
     setTable((previousSet) => ({
       ...previousSet,
       cards: orderedSet.cards,
@@ -33,30 +36,31 @@ function Home() {
     }));
   }, []);
 
-  console.log(table);
   return (
-    <div className="background" data-testid="background-testid">
-      <Header 
-      setTable={setTable} setCards={setCards} 
-      move={move} setMove={setMove}
-      score={score} setScore={setScore}>
-      </Header>
-      <div className="container">
-        <Foundation></Foundation>
-        <Tableau 
-        table={table} setTable={setTable}
-         move={move} setMove={setMove} 
-         score={score} setScore={setScore}>
-         </Tableau>
-        {cards.hasOwnProperty("decks") && table.decks[10].length > 0 && (
-        <Stock 
-        table={table} setTable={setTable} 
-        move={move} setMove={setMove}>
-        </Stock>
-        )}
+    <div>
+      <div className="background" data-testid="background-testid">
+        <Header 
+        setTable={setTable} setCards={setCards} 
+        move={move} setMove={setMove}
+        score={score} setScore={setScore}>
+        </Header>
+        <div className="container">
+          <Foundation></Foundation>
+          <Tableau 
+          table={table} setTable={setTable}
+          move={move} setMove={setMove} 
+          score={score} setScore={setScore}
+          gameIsOver={gameIsOver} setGameIsOver={setGameIsOver}>
+          </Tableau>
+          {cards.hasOwnProperty("decks") && table.decks[10].length > 0 && (
+          <Stock 
+          table={table} setTable={setTable} 
+          move={move} setMove={setMove}>
+          </Stock>)}
         </div>
+      </div>
+      {gameIsOver === true && <CheckForWin></CheckForWin>}
     </div>
-
   );
 }
 

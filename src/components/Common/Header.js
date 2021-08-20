@@ -1,4 +1,4 @@
-import { CompleteFoundation } from "../DragDrop/CardQueue";
+import { CompleteElement } from "../Foundation/Foundation";
 import ShuffleDeck from "../Tableau/Shuffle";
 import TableauPile from "../Tableau/TableauPile";
 
@@ -71,13 +71,10 @@ export const RestartGame = (setTable, setCards, setMove, setScore) => {
     setMove(0);
     setScore(0);
     GameTimer("stop");
-    CompleteFoundation("foundation", true);
+    CompleteElement("foundation", true);
     setTable((previousSet) => ({
       ...previousSet,
       cards: orderedSet.cards,
       decks: orderedSet.decks,
     }));
-
-    //Foundation clear
-
 }
