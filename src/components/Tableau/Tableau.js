@@ -12,7 +12,7 @@ function Tableau(props) {
         table, setTable, 
         move, setMove, 
         score, setScore, 
-        gameIsOver, setGameIsOver
+        gameOver, setGameOver
     } = props;
 
     return (
@@ -38,7 +38,7 @@ function Tableau(props) {
                 onDragStart={(e) => { beginDrag(e, card, deck, table, setTable); }}
                 onDrag={(e) => { onDrag(e, table); }}
                 onDragEnter={(e) => { enterDrag(table, setTable, card, deck); }}
-                onDragEnd={(e) => { endDrag(card, table, setTable, move, setMove, score, setScore, gameIsOver, setGameIsOver); }}>
+                onDragEnd={(e) => { endDrag(card, table, setTable, move, setMove, score, setScore, gameOver, setGameOver); }}>
                     <Card key={card.rank + " " + card.suit + " " + card.deck} card={card}
                     isSelected={card.isSelected} isClosed={card.isClosed}/>
                     </div>

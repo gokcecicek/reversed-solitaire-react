@@ -7,7 +7,7 @@ let clock = 0;
 let time = 0;
 
 function Header(props) {
-    const { setTable, setCards, move, setMove, score, setScore } = props;
+    const { setTable, setCards, move, setMove, score, setScore, gameOver, setGameOver } = props;
 
     return(
         <div className="header" data-testid="header-testid">
@@ -22,7 +22,7 @@ function Header(props) {
                 <label>Score: {score}</label>
             </div>
             <div className="header-right">
-                <button className="restart-btn" onClick={() =>{ RestartGame(setTable, setCards, setMove, setScore); }}>
+                <button className="restart-btn" onClick={() =>{ RestartGame(setTable, setCards, setMove, setScore, gameOver, setGameOver); }}>
                     <strong>NEW GAME</strong>
                 </button> 
             </div>
@@ -48,15 +48,19 @@ export const GameTimer = (action) => {
             timer.textContent = minutes + ':' + seconds;
         }, 1000);
     }
+    else if(action === "pause"){
+        clearInterval(clock);
+    }
     else if(action === "stop"){
         clearInterval(clock);
         timer.textContent = "00:00";
         time = 0;
     }
+    
     return;
 }
 
-export const RestartGame = (setTable, setCards, setMove, setScore) => {
+export const RestartGame = (setTable, setCards, setMove, setScore, gameOver, setGameOver) => {
     //Table clear
     setTable((previousSet) => ({
       ...previousSet,
@@ -72,6 +76,7 @@ export const RestartGame = (setTable, setCards, setMove, setScore) => {
     setScore(0);
     GameTimer("stop");
     CompleteElement("foundation", true);
+    setGameOver(gameOver => !gameOver);
     setTable((previousSet) => ({
       ...previousSet,
       cards: orderedSet.cards,

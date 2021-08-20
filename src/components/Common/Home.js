@@ -12,7 +12,7 @@ function Home() {
   const [cards, setCards] = useState({});
   const [move, setMove] = useState([]);
   const [score, setScore] = useState([]);
-  const [gameIsOver, setGameIsOver] = useState(false);
+  const [gameOver, setGameOver] = useState(false);
   const [table, setTable] = useState({
     cards: [],
     decks: [],
@@ -28,7 +28,7 @@ function Home() {
     setCards(orderedSet);
     setMove(0);
     setScore(0);
-    setGameIsOver(false);
+    setGameOver(false);
     setTable((previousSet) => ({
       ...previousSet,
       cards: orderedSet.cards,
@@ -42,7 +42,8 @@ function Home() {
         <Header 
         setTable={setTable} setCards={setCards} 
         move={move} setMove={setMove}
-        score={score} setScore={setScore}>
+        score={score} setScore={setScore}
+        gameOver={gameOver} setGameOver={setGameOver}>
         </Header>
         <div className="container">
           <Foundation></Foundation>
@@ -50,7 +51,7 @@ function Home() {
           table={table} setTable={setTable}
           move={move} setMove={setMove} 
           score={score} setScore={setScore}
-          gameIsOver={gameIsOver} setGameIsOver={setGameIsOver}>
+          gameOver={gameOver} setGameOver={setGameOver}>
           </Tableau>
           {cards.hasOwnProperty("decks") && table.decks[10].length > 0 && (
           <Stock 
@@ -59,7 +60,7 @@ function Home() {
           </Stock>)}
         </div>
       </div>
-      {gameIsOver === true && <CheckForWin></CheckForWin>}
+      {gameOver === true && <CheckForWin></CheckForWin>}
     </div>
   );
 }

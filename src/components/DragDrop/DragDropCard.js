@@ -19,25 +19,25 @@ export const beginDrag = (event, card, deck, table, setTable) => {
   cardSelection(card, deck, null, table, setTable);
 };
 
-//Adds css animation that will appear as the selected card/cards is dragged
+//Adds css gameOver that will appear as the selected card/cards is dragged
 export const onDrag = (event, table) => {
-  var dragAnimationCss;
+  var draggameOverCss;
   table.selected.forEach((card) => {
     var childCard = document.getElementById(card.rank + " " + card.suit + " " + card.deck).children[0];
     var directionX = event.pageX - table.x;
     var directionY = event.pageY - table.y;
     if (event.pageX === 0) {
-      dragAnimationCss = "z-index:9999;transform:translate(0px,0px);display:none;";
+      draggameOverCss = "z-index:9999;transform:translate(0px,0px);display:none;";
     }
     else {
-      dragAnimationCss =
+      draggameOverCss =
         "z-index:9999;pointer-events: none; transform: scale(1.05, 1.05) rotate(0deg) translate(" +
         directionX +
         "px, " +
         directionY +
         "px);";
     }
-    childCard.style.cssText = dragAnimationCss;
+    childCard.style.cssText = draggameOverCss;
   });
 };
 
@@ -67,7 +67,7 @@ export const enterDrag = (table, setTable, card, deck) => {
 };
 
 //Drops the dragged card on the other cards if it is suitable for the set to be placed
-export const endDrag = (card, table, setTable, move, setMove, score, setScore, gameIsOver, setGameIsOver) => {
+export const endDrag = (card, table, setTable, move, setMove, score, setScore, gameOver, setGameOver) => {
   //If the target card is the card holder then the card holder is removed
   //Drag is allowed for each card
   if (table.targetCard === "") {
@@ -99,8 +99,8 @@ export const endDrag = (card, table, setTable, move, setMove, score, setScore, g
       setMove(move + 1);
       //Five times the number of cards swiped is earned
       setScore(score += (table.selected.length * 5));
-      if(checkAllSetCompleted("foundation")){
-        setGameIsOver(gameIsOver => !gameIsOver);
+      if(!checkAllSetCompleted("foundation")){
+        setGameOver(gameOver => !gameOver);
       }
       return;
     } 
@@ -113,7 +113,7 @@ export const endDrag = (card, table, setTable, move, setMove, score, setScore, g
   }
 };
 
-//Adds animation if card does not match target when dropped
+//Adds gameOver if card does not match target when dropped
 export const notMatchTargetEndDrag = (table, setTable) => {
   table.selected.forEach((card) => {
     var child = document.getElementById(
