@@ -18,7 +18,17 @@ describe("Check that each foundation is completed", () => {
         for(let i=0; i<8; i++) {
             CompleteElement("foundation", false);
         }
-        let allFoundationDone = checkAllSetCompleted("foundation");
-        expect(allFoundationDone).toEqual(true);
+        let allCompleted = checkAllSetCompleted("foundation");
+        expect(allCompleted).toEqual(true);
+    });
+});
+
+describe("Check that all foundation is not completed", () => {
+    it('should return false if all foundation not completed', async () => {
+        render( 
+            <FoundationMock/>
+        );
+        let allCompleted = checkAllSetCompleted("foundation");
+        expect(allCompleted).toEqual(false);
     });
 });
