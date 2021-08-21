@@ -1,18 +1,17 @@
 import { isEqual }from "lodash";
 import "../Foundation/Foundation.scss";
-import getConstants from "../Common/Constants";
-import { getCardRank } from "./CardSelection";
+import GetConstants from "../Common/Constants";
+import { GetCardRank } from "./CardSelection";
 import ToastMessage from "../Common/ToastMessage";
 import { CompleteElement } from "../Foundation/Foundation";
-import { checkAllSetCompleted } from "../Foundation/Foundation";
 
 //If the set sequence is complete, remove that set
 export const IsExpectedSet = (deck) => {
   let ranks=[]; 
   deck.forEach((card) => {
-    ranks.push(getCardRank(card.rank));
+    ranks.push(GetCardRank(card.rank));
   });
-  const expectedArray = getConstants.COMPLETE_QUEUE;
+  const expectedArray = GetConstants.COMPLETE_QUEUE;
   let isOrderSet = isEqual(expectedArray, ranks.slice(-13));
   if (isOrderSet) {
     return ranks.length - 13;
@@ -39,7 +38,7 @@ export const IsCompleteSet = (deck, table, setTable, score, setScore) => {
     }));
     //50 points are earned if a set is completed
     setScore(score += 50);
-    ToastMessage.success(getConstants.SET_COMPLETED);
+    ToastMessage.success(GetConstants.SET_COMPLETED);
   }
 };
 

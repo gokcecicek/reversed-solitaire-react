@@ -28,8 +28,8 @@ export function GetConfetti() {
 export function RemoveAllItemsByClass(removeItemClass){
   let items = document.getElementsByClassName(removeItemClass);
   if(items.length > 0) {
-    for(let i=0; i<removeItemClass.length; i++){
-      removeItemClass[i].style.display = "none";
+    for(let i=0; i<items.length; i++){
+      items[i].style.display = "none";
     }
   }
 }

@@ -1,5 +1,5 @@
 import { chunk } from "lodash";
-import getConstants from "../Common/Constants";
+import GetConstants from "../Common/Constants";
 
 //Creates the distribution of sets on the table
 //The first 4 sets will be 6, the next 6 will be 5
@@ -8,7 +8,7 @@ function TableauPile(shuffleDeck) {
     let cardsOnTable = shuffleDeck.slice(0, 54);
     let decks = chunk(cardsOnTable, 5);
     decks[10] = shuffleDeck.slice(50);
-    for (let i = 0; i < getConstants.TABLEAU_COLUMN_NUM; i++) {
+    for (let i = 0; i < GetConstants.TABLEAU_COLUMN_NUM; i++) {
         if(i < 4) {
             decks[i].push(decks[10][decks[10].length - 1]);
             decks[10].pop();

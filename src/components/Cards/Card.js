@@ -1,6 +1,6 @@
 import "./Card.scss";
 import React, { useState, useEffect } from "react";
-import getConstants from "../Common/Constants";
+import GetConstants from "../Common/Constants";
 
 
 function Card({ card, isSelected, isClosed }) {
@@ -17,11 +17,11 @@ function Card({ card, isSelected, isClosed }) {
       <div className={"card" + closed + select} data-testid="card-testid">
         <div className="card-container card-rank-left">
         {card.rank}
-        <div className="spade-bottom-rank">{getConstants.SYMBOL}</div>
+        <div className="spade-bottom-rank">{GetConstants.SYMBOL}</div>
         </div>
       <div className="card-container card-rank-right">
         {card.rank}
-        <div className="spade-top-rank">{getConstants.SYMBOL}</div>
+        <div className="spade-top-rank">{GetConstants.SYMBOL}</div>
         </div>
       </div>
   );

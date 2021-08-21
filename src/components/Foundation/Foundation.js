@@ -21,7 +21,6 @@ export default function Foundation() {
 export const CompleteElement = (parentClass, restartGame) => {
     var parentElement = document.getElementsByClassName(parentClass);
     var childElement = parentElement[0].children;
-    console.log(childElement);
     if(childElement.length > 0){
       for(let i=0; i<childElement.length; i++){
         let isFoundationFill = childElement[i].classList.contains("completed");
@@ -35,7 +34,7 @@ export const CompleteElement = (parentClass, restartGame) => {
     } 
 };
 
-export const checkAllSetCompleted = (parentCompletedClass) => {
+export const CheckAllSetCompleted = (parentCompletedClass) => {
     let parentElement = document.getElementsByClassName(parentCompletedClass);
     let completedItem = 0;
     let child = parentElement[0]?.children;

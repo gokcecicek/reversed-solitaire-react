@@ -9,6 +9,8 @@ import Header from "./Header";
 import { CheckForWin } from "./GameOver";
 
 function Home() {
+  //Global variables
+
   const [cards, setCards] = useState({});
   const [move, setMove] = useState([]);
   const [score, setScore] = useState([]);

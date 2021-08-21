@@ -1,25 +1,25 @@
-import getConstants from "../Common/Constants";
+import GetConstants from "../Common/Constants";
 import { GameTimer } from "../Common/Header";
 import ToastMessage from "../Common/ToastMessage";
 import { IsCompleteSet } from "./CardQueue";
-import { checkSelectedCardMove, transferCardsToAnother } from "./Move";
+import { CheckSelectedCardMove, TransferCardsToAnother } from "./Move";
 
 // Returns card rank
-export const getCardRank = (cardRank) => {
-  let currentCardRank = getConstants.CARD_RANKS[cardRank];
+export const GetCardRank = (cardRank) => {
+  let currentCardRank = GetConstants.CARD_RANKS[cardRank];
   return currentCardRank;
 };
 
 //Card selection is preserved
-export const cardSelection= (card, deck, cardHolder, table, setTable, score, setScore) => {
+export const CardSelection = (card, deck, cardHolder, table, setTable, score, setScore) => {
   if(document.querySelector('.timer span').textContent === "00:00"){
     GameTimer("start");
   }
   if (cardHolder && table.selectedCard !== "") {
     if (table.selectedCard.rank === "K") {
-      transferCardsToAnother(deck, table.selectedDeck, table.selectedCard, setTable, table);
+      TransferCardsToAnother(deck, table.selectedDeck, table.selectedCard, setTable, table);
       IsCompleteSet(deck, table, setTable, score, setScore);
-      deleteCardSelection(table, setTable);
+      DeleteCardSelection(table, setTable);
     }
   }
 
@@ -30,7 +30,7 @@ export const cardSelection= (card, deck, cardHolder, table, setTable, score, set
     if (card.isClosed) {
       return;
     }
-    if (checkSelectedCardMove(card, deck)) {
+    if (CheckSelectedCardMove(card, deck)) {
       tempCard.isSelected = true;
       var tableDecks = [...deck];
       var selected = tableDecks.slice(deck.indexOf(card));
@@ -45,13 +45,13 @@ export const cardSelection= (card, deck, cardHolder, table, setTable, score, set
       }));
     }
     else{
-      ToastMessage.error(getConstants.MULTICARD_NOT_SEQUENTIAL);
+      ToastMessage.error(GetConstants.MULTICARD_NOT_SEQUENTIAL);
     }
   }
 };
 
 //The selected card is deselected
-export const deleteCardSelection = (table, setTable) => { 
+export const DeleteCardSelection = (table, setTable) => { 
   if (table.selectedCard !== "") {
     var decks = [...table.decks];
     for (let i = 0; i < decks.length; i++) {

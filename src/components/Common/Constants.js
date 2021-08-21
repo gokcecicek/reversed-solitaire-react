@@ -1,4 +1,4 @@
-const getConstants =  {    
+const GetConstants =  {    
     //TABLEAU
     TABLEAU_COLUMN_NUM: 10,
 
@@ -28,4 +28,4 @@ const getConstants =  {
     SET_COMPLETED: "One set successfully completed.",
 
 }
-export default getConstants;
+export default GetConstants;

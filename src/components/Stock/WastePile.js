@@ -1,7 +1,7 @@
 import { GameTimer } from "../Common/Header";
 import "../Cards/Card.scss";
 import { IsCompleteSet } from "../DragDrop/CardQueue";
-import { checkAllSetCompleted } from "../Foundation/Foundation";
+import { CheckAllSetCompleted } from "../Foundation/Foundation";
 
 //The face of the dealt card is turned over
 //Separates 10 cards from the remaining deck and push into each set
@@ -22,7 +22,7 @@ function WastePile(table, setTable, move, setMove, score, setScore, gameOver, se
         currentDeck.forEach((deck) => {
             IsCompleteSet(deck, table, setTable, score, setScore)
         });
-        if(checkAllSetCompleted("foundation")){
+        if(CheckAllSetCompleted("foundation")){
             setGameOver(gameOver => !gameOver);
         }
         return (

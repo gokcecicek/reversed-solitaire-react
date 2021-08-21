@@ -1,10 +1,10 @@
 import { IsCompleteSet} from "./CardQueue";
-import { checkTargetRank, checkSelectedCardMove, transferCardsToAnother } from "./Move";
-import { cardSelection, deleteCardSelection } from "./CardSelection";
-import { checkAllSetCompleted } from "../Foundation/Foundation";
+import { CheckTargetRank, CheckSelectedCardMove, TransferCardsToAnother } from "./Move";
+import { CardSelection, DeleteCardSelection } from "./CardSelection";
+import { CheckAllSetCompleted } from "../Foundation/Foundation";
 
 //For the card is at the cursor level when the user holds the card to drag
-export const beginDrag = (event, card, deck, table, setTable) => {
+export const BeginDrag = (event, card, deck, table, setTable) => {
   event.dataTransfer.setData("text", event.target.id);
   event.dataTransfer.setDragImage(new Image("0", "0"), -10, -10);
   setTable((previousSet) => ({
@@ -15,12 +15,12 @@ export const beginDrag = (event, card, deck, table, setTable) => {
   if (table.selectedCard === card) {
     return;
   }
-  deleteCardSelection(table, setTable);
-  cardSelection(card, deck, null, table, setTable);
+  DeleteCardSelection(table, setTable);
+  CardSelection(card, deck, null, table, setTable);
 };
 
 //Adds css gameOver that will appear as the selected card/cards is dragged
-export const onDrag = (event, table) => {
+export const OnDrag= (event, table) => {
   var draggameOverCss;
   table.selected.forEach((card) => {
     var childCard = document.getElementById(card.rank + " " + card.suit + " " + card.deck).children[0];
@@ -42,7 +42,7 @@ export const onDrag = (event, table) => {
 };
 
 //Cards that can be the drop target of a dragged card
-export const enterDrag = (table, setTable, card, deck) => {
+export const EnterDrag = (table, setTable, card, deck) => {
   var decksOnTable = [...table.decks];
     if (card === "" && table.selectedCard !== "") {
       decksOnTable.forEach((deck) =>
@@ -67,60 +67,60 @@ export const enterDrag = (table, setTable, card, deck) => {
 };
 
 //Drops the dragged card on the other cards if it is suitable for the set to be placed
-export const endDrag = (card, table, setTable, move, setMove, score, setScore, gameOver, setGameOver) => {
+export const EndDrag = (card, table, setTable, move, setMove, score, setScore, gameOver, setGameOver) => {
   //If the target card is the card holder then the card holder is removed
   //Drag is allowed for each card
   if (table.targetCard === "") {
-    if(checkSelectedCardMove(table.selectedCard, table.selectedDeck)){
-      transferCardsToAnother(table.targetDeck, table.selectedDeck, table.selectedCard, setTable, table);
+    if(CheckSelectedCardMove(table.selectedCard, table.selectedDeck)){
+      TransferCardsToAnother(table.targetDeck, table.selectedDeck, table.selectedCard, setTable, table);
       IsCompleteSet(table.targetDeck, table, setTable, score, setScore);
-      deleteCardSelection(table, setTable);
+      DeleteCardSelection(table, setTable);
     }
     else{
-      deleteCardSelection(table, setTable);
+      DeleteCardSelection(table, setTable);
     }
   }
   //If the target card is not card holder
-  if (checkTargetRank(table.targetCard, table)) {
-    if (checkSelectedCardMove(table.selectedCard, table.selectedDeck)) {
+  if (CheckTargetRank(table.targetCard, table)) {
+    if (CheckSelectedCardMove(table.selectedCard, table.selectedDeck)) {
       table.selected.forEach((card) => {
         var child = document.getElementById(
           card.rank + " " + card.suit + " " + card.deck
         ).children[0];
         child.style.cssText = "z-index:0;pointer-events:auto;display:none;";
       });
-      transferCardsToAnother(table.targetDeck,
+      TransferCardsToAnother(table.targetDeck,
         table.selectedDeck,
         table.selectedCard,
         setTable,
         table);
       IsCompleteSet(table.targetDeck, table, setTable, score, setScore);
-      deleteCardSelection(table, setTable);
+      DeleteCardSelection(table, setTable);
       setMove(move + 1);
       //Five times the number of cards swiped is earned
       setScore(score += (table.selected.length * 5));
-      if(checkAllSetCompleted("foundation")){
+      if(CheckAllSetCompleted("foundation")){
         setGameOver(gameOver => !gameOver);
       }
       return;
     } 
     else {
-      notMatchTargetEndDrag(table, setTable);
+      NotMatchTargetEndDrag(table, setTable);
     }
   } 
   else {
-    notMatchTargetEndDrag(table, setTable);
+    NotMatchTargetEndDrag(table, setTable);
   }
 };
 
 //Adds gameOver if card does not match target when dropped
-export const notMatchTargetEndDrag = (table, setTable) => {
+export const NotMatchTargetEndDrag = (table, setTable) => {
   table.selected.forEach((card) => {
     var child = document.getElementById(
       card.rank + " " + card.suit + " " + card.deck
     ).children[0];
     child.style.cssText = "z-index:0;pointer-events:auto;";
   });
-  deleteCardSelection(table, setTable);
+  DeleteCardSelection(table, setTable);
 }
 

@@ -1,6 +1,6 @@
 import Foundation from "../components/Foundation/Foundation";
 import { render } from '@testing-library/react';
-import { checkAllSetCompleted } from "../components/Foundation/Foundation";
+import { CheckAllSetCompleted } from "../components/Foundation/Foundation";
 import { CompleteElement } from "../components/Foundation/Foundation";
 
 const FoundationMock = () => {
@@ -18,7 +18,7 @@ describe("Check that each foundation is completed", () => {
         for(let i=0; i<8; i++) {
             CompleteElement("foundation", false);
         }
-        let allCompleted = checkAllSetCompleted("foundation");
+        let allCompleted = CheckAllSetCompleted("foundation");
         expect(allCompleted).toEqual(true);
     });
 });
@@ -28,7 +28,7 @@ describe("Check that all foundation is not completed", () => {
         render( 
             <FoundationMock/>
         );
-        let allCompleted = checkAllSetCompleted("foundation");
+        let allCompleted = CheckAllSetCompleted("foundation");
         expect(allCompleted).toEqual(false);
     });
 });

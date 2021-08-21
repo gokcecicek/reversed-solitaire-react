@@ -1,14 +1,14 @@
-import { getCardRank } from "./CardSelection";
+import { GetCardRank } from "./CardSelection";
 
 // Checks whether the card/cards is movable or not.
-export const checkSelectedCardMove = (card, deck) => {
+export const CheckSelectedCardMove = (card, deck) => {
   var tableDecks = [...deck]; 
   var movingCards = tableDecks.slice(deck.indexOf(card));
   let ranks = [];
   movingCards.forEach((curCard) => {
-    ranks.push(getCardRank(curCard.rank));
+    ranks.push(GetCardRank(curCard.rank));
   });
-  var curRank = getCardRank(card.rank);
+  var curRank = GetCardRank(card.rank);
   for (let i = 1; i < ranks.length; i++) {
     if (curRank - ranks[i] !== 1){ return false; }
     curRank = ranks[i];
@@ -17,16 +17,21 @@ export const checkSelectedCardMove = (card, deck) => {
 };
 
 //Checks whether the selected card can be placed on the desired target
-export const checkTargetRank = (target, table) => {
-  let targetIsFit = getCardRank(target.rank) - getCardRank(table.selectedCard.rank) === 1;
-  if (targetIsFit) {
-    return true;
+export const CheckTargetRank = (target, table) => {
+  try{
+    let targetIsFit = GetCardRank(target.rank) - GetCardRank(table.selectedCard.rank) === 1;
+    if (targetIsFit) {
+      return true;
+    }
+    return false;
   }
-  return false;
+  catch(error){
+    console.log(error);
+  }
 };
 
 // Function to transfer cards from one deck to another
-export const transferCardsToAnother = function (toDeck, fromDeck, fromCard, setTable, table) {
+export const TransferCardsToAnother = function (toDeck, fromDeck, fromCard, setTable, table) {
   var tableDecks = [...table.decks];
   var to = tableDecks.indexOf(toDeck);
   var from = tableDecks.indexOf(fromDeck);

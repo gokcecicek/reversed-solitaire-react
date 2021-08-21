@@ -35,8 +35,8 @@ export const GameTimer = (action) => {
     var timer = document.querySelector('.timer span');
     let minutes= 0;
     let seconds= 0;
+    console.log(action);
     if(action === "start"){
-        
         clock = setInterval(function() {
             time++;
             //Parse minutes and seconds
@@ -48,14 +48,14 @@ export const GameTimer = (action) => {
             timer.textContent = minutes + ':' + seconds;
         }, 1000);
     }
-    else if(action === "pause"){
-        clearInterval(clock);
-    }
     else if(action === "stop"){
         clearInterval(clock);
         timer.textContent = "00:00";
         time = 0;
     }
+    else if(action === "pause"){
+        clearInterval(clock);
+    } 
     
     return;
 }
@@ -74,7 +74,6 @@ export const RestartGame = (setTable, setCards, setMove, setScore, gameOver, set
     setCards(orderedSet);
     setMove(0);
     setScore(0);
-    GameTimer("stop");
     CompleteElement("foundation", true);
     if(gameOver === true){
         setGameOver(gameOver => !gameOver);
@@ -84,4 +83,5 @@ export const RestartGame = (setTable, setCards, setMove, setScore, gameOver, set
       cards: orderedSet.cards,
       decks: orderedSet.decks,
     }));
+    GameTimer("stop");
 }
