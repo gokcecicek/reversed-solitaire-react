@@ -35,7 +35,7 @@ export const GameTimer = (action) => {
     var timer = document.querySelector('.timer span');
     let minutes= 0;
     let seconds= 0;
-    console.log(action);
+    console.log(time);
     if(action === "start"){
         clock = setInterval(function() {
             time++;
@@ -48,15 +48,14 @@ export const GameTimer = (action) => {
             timer.textContent = minutes + ':' + seconds;
         }, 1000);
     }
+    else if(action === "pause"){
+        clearInterval(clock);
+    }
     else if(action === "stop"){
         clearInterval(clock);
         timer.textContent = "00:00";
         time = 0;
     }
-    else if(action === "pause"){
-        clearInterval(clock);
-    } 
-    
     return;
 }
 

@@ -6,7 +6,6 @@ import { GameTimer } from './Header'
 
 export const CheckForWin = () => {
   GameTimer("pause");
-  RemoveAllItemsByClass("cardholder");
   return GetConfetti();
 }
 
