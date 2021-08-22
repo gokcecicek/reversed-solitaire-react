@@ -34,7 +34,7 @@ export const GameTimer = (action) => {
     var timer = document.querySelector('.timer span');
     let minutes= 0;
     let seconds= 0;
-    console.log(time);
+
     if(action === "start"){
         clock = setInterval(function() {
             time++;
@@ -76,7 +76,6 @@ export const RestartGame = (setTable, setCards, setMove, setScore, gameOver, set
     if(gameOver === true){
         setGameOver(gameOver => !gameOver);
         document.getElementById("win-popup").style.display = "none";
-        document.getElementsByClassName("background")[0].classList.remove("background-win"); 
     }
     setTable((previousSet) => ({
       ...previousSet,

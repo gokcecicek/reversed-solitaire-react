@@ -1,4 +1,5 @@
 import { IsExpectedSet } from '../components/DragDrop/CardQueue';
+import { ShuffleDeck } from "../components/Tableau/TableauPile";
 
 //Completion test for ordered and unordered cards
 const expectedPile = [
@@ -49,5 +50,10 @@ describe("Unordered stack of cards completion test", () => {
     });
 });
 
-
-
+//Shuffle test
+describe("Shuffle cards length test", () => {
+    it('should return length of shuffled cards', async () => {
+        const shuffledCards = ShuffleDeck();
+        expect(shuffledCards.length).toEqual(104);
+    });
+});

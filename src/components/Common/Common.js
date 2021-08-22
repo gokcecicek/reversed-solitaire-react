@@ -19,11 +19,22 @@ export const ToastMessage = {
     },
 }
 
+//Reusable pop up
+export const PopUp = props => {
+    return (
+      <div className="popup-box" id="win-popup">
+        <div className="box">
+          {props.content}
+        </div>
+      </div>
+    );
+  }
+
 export const InfoPopUp = () => {
     return(
-    <div class="tooltip">
+    <div className="tooltip">
         <FaQuestionCircle size={30} color="white">Hover</FaQuestionCircle>
-        <span class="tooltiptext">{GetConstants.GAME_GOAL_INFO}</span>
+        <span className="tooltiptext">{GetConstants.GAME_GOAL_INFO}</span>
     </div>
     )
 }

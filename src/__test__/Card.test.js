@@ -1,6 +1,8 @@
-import { BrowserRouter } from "react-router-dom"
 import Card from "../components/Cards/Card"
+import { BrowserRouter } from "react-router-dom"
 import { render, screen } from '@testing-library/react';
+import { GetCardRank } from "../components/DragDrop/CardSelection";
+import CardHolder from "../components/Cards/CardHolder";
 
 //Card render test
 const cards = [
@@ -20,7 +22,6 @@ const CardMock = (card) => {
     );
 }
 
-
 describe("Card render test", () => {
     it('should render card', async () => {
         cards.forEach((card) => {
@@ -30,5 +31,34 @@ describe("Card render test", () => {
         });
         const renderedCard = await screen.findAllByTestId(`card-testid`);
         expect(renderedCard).toBeTruthy();
+    });
+});
+
+//Card rank test
+const cardRank = "A";
+
+describe("Returns card rank", () => {
+    it('should return rank of card', () => {
+        let rank = GetCardRank(cardRank);
+        expect(rank).toEqual("13");
+    });
+});
+
+//Card holder render test
+const HolderMock = () => {
+    return (
+    <BrowserRouter>
+      <CardHolder></CardHolder>
+    </BrowserRouter>
+    );
+}
+
+describe("Header render test", () => {
+    it('should render header', async () => {
+        render( 
+            <HolderMock/>
+        );
+        const renderedHolder = await screen.findAllByTestId(`holder-testid`);
+        expect(renderedHolder).toBeTruthy();
     });
 });
