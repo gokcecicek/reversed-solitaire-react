@@ -1,0 +1,6 @@
+{
+    "name": "React Reversed Solitaire",
+    "description": "Reversed Solitaire Game",
+    "repository": "https://github.com/gokcecicek/solitaire-beril-gokce-cicek",
+    "keywords": ["node", "express", "static"]
+  }
