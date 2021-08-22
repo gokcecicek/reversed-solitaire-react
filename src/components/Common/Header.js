@@ -30,7 +30,7 @@ function Header(props) {
 }
 export default Header;
 
-export const GameTimer = (action => {
+export const GameTimer = (action) => {
     var timer = document.querySelector('.timer span');
     let minutes= 0;
     let seconds= 0;
