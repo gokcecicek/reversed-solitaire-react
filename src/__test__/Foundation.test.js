@@ -3,6 +3,7 @@ import { render } from '@testing-library/react';
 import { CheckAllSetCompleted } from "../components/Foundation/Foundation";
 import { CompleteElement } from "../components/Foundation/Foundation";
 
+//Foundation test
 const FoundationMock = () => {
     return(
         <Foundation></Foundation>
