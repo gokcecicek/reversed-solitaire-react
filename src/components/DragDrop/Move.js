@@ -32,20 +32,21 @@ export const CheckTargetRank = (target, table) => {
 
 // Function to transfer cards from one deck to another
 export const TransferCardsToAnother = function (toDeck, fromDeck, fromCard, setTable, table) {
-  var tableDecks = [...table.decks];
-  var to = tableDecks.indexOf(toDeck);
-  var from = tableDecks.indexOf(fromDeck);
-  var cardIndex = tableDecks[from].indexOf(fromCard);
-  var movedCards = tableDecks[from].splice(cardIndex);
-  movedCards.forEach((card) => {
-    tableDecks[to].push(card);
-  });
-
+  
   try {
+    var tableDecks = [...table.decks];
+    var to = tableDecks?.indexOf(toDeck);
+    var from = tableDecks?.indexOf(fromDeck);
+    var cardIndex = tableDecks[from]?.indexOf(fromCard);
+    var movedCards = tableDecks[from]?.splice(cardIndex);
+    movedCards.forEach((card) => {
+      tableDecks[to].push(card);
+    });
     if (tableDecks[from][tableDecks[from].length - 1].isClosed === true) {
       tableDecks[from][tableDecks[from].length - 1].isClosed = false;
     }
-  } catch (error) {
+  } 
+  catch (error) {
     console.log(error);
   }
   
