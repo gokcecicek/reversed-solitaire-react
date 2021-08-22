@@ -17,7 +17,8 @@ describe("Background render test", () => {
         render( 
             <HeaderMock/>
         );
-        const renderedBackground = await screen.findAllByTestId(`background-testid`);
+        //CI CD TEST
+        const renderedBackground = await screen.findAllByTestId(`background-test`);
         expect(renderedBackground).toBeTruthy();
     });
 });
