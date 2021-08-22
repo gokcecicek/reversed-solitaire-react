@@ -44,5 +44,12 @@ export const GetConstants =  {
     //TOAST MESSAGES
     MULTICARD_NOT_SEQUENTIAL: "Multi-card selection is not sequential.",
     SET_COMPLETED: "One set successfully completed.",
+    SUCCESS_OPERATION: "The operation was successful.",
 
+    //DICTIONARY
+    CELEBRATION_MESSAGE: "Congratulations!",
+    SCORE: "Score",
+    PROFIT_MESSAGE: "You won",
+    ADD_TRENDYOL_WALLET: "Add to my Trendyol wallet",
+    CURRENCY: "TL"
 }

@@ -1,39 +1,75 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Confetti from 'react-confetti'
 import { useWindowSize } from 'react-use'
 import { GameTimer } from './Header'
 import "../Common/common.scss";
+import { GetConstants, ToastMessage } from './Common';
 
 export const GoForWin = (props) => {
+  let userProfit;
   const { score, setScore } = props;
-  GameTimer("pause");
-  let userProfit = CalculateProfit(score);
+  try{
+    GameTimer("pause");
+    document.getElementById("background-id").classList.add("background-win"); 
+    userProfit = CalculateProfit(score);
+  }
+  catch(error){
+    console.log(error);
+  }
   return (
     <div>
-      {GetPopUp(score, userProfit)}
+      {GetWinPopUp(score, userProfit)}
       {GetConfetti()}
     </div>
   )
 }
 
-export const GetPopUp = (score, userProfit) => {
+export const GetWinPopUp = (score, userProfit) => {
+  const [disable, setDisable] = useState(false);
+
   return(
     <div>
     {<PopUp
       content={<>
-        <b>Congratulations!</b>
-        <p>Score: {score}</p>
-        <p>You won {userProfit} TL!</p>
-        <button>Add to my Trendyol wallet</button>
+        <div className="popup-win">
+          <b>{GetConstants.CELEBRATION_MESSAGE}</b>
+          <p>{GetConstants.SCORE} : {score}</p>
+          <p>{GetConstants.PROFIT_MESSAGE} {userProfit} {GetConstants.CURRENCY}!</p>
+          <button disabled={disable} onClick={() => {
+            setDisable(true);
+            ToastMessage.success(GetConstants.SUCCESS_OPERATION);
+          }}>{GetConstants.ADD_TRENDYOL_WALLET}</button>
+        </div>
       </>}
     />}
   </div>
   )
 }
 
+export const PopUp = props => {
+  return (
+    <div className="popup-box" id="win-popup">
+      <div className="box">
+        {props.content}
+      </div>
+    </div>
+  );
+}
+
+//The amount to be added to the Trendyol wallet is calculated over points
 export const CalculateProfit = (score) => {
   let userProfit = score / 500;
   return userProfit;
+}
+
+//Remove card holders end of the game
+export function RemoveAllItemsByClass(removeItemClass){
+  let items = document.getElementsByClassName(removeItemClass);
+  if(items.length > 0) {
+    for(let i=0; i<items.length; i++){
+      items[i].style.display = "none";
+    }
+  }
 }
 
 //Throw confetti
@@ -49,23 +85,3 @@ export function GetConfetti() {
     />
   )
 };
-
-//Remove card holders end of the game
-export function RemoveAllItemsByClass(removeItemClass){
-  let items = document.getElementsByClassName(removeItemClass);
-  if(items.length > 0) {
-    for(let i=0; i<items.length; i++){
-      items[i].style.display = "none";
-    }
-  }
-}
-
-export const PopUp = props => {
-  return (
-    <div className="popup-box" id="win-popup">
-      <div className="box">
-        {props.content}
-      </div>
-    </div>
-  );
-}

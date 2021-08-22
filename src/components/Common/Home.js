@@ -39,7 +39,7 @@ function Home() {
 
   return (
     <div>
-      <div className="background" data-testid="background-testid">
+      <div className="background" id="background-id" data-testid="background-testid">
         <Header 
         setTable={setTable} setCards={setCards} 
         move={move} setMove={setMove}
@@ -63,7 +63,7 @@ function Home() {
           </Stock>)}
         </div>
       </div>
-      {gameOver === true && <GoForWin score={score} setScore={setScore}></GoForWin>}
+      {gameOver !== true && <GoForWin score={score} setScore={setScore}></GoForWin>}
     </div>
   );
 }
