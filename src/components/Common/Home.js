@@ -6,10 +6,9 @@ import TableauPile from "../Tableau/TableauPile";
 import Tableau from "../Tableau/Tableau";
 import Foundation from "../Foundation/Foundation";
 import Header from "./Header";
-import { CheckForWin } from "./GameOver";
+import { GoForWin } from "./GameOver";
 
 function Home() {
-  //Global variables
 
   const [cards, setCards] = useState({});
   const [move, setMove] = useState([]);
@@ -64,7 +63,7 @@ function Home() {
           </Stock>)}
         </div>
       </div>
-      {gameOver === true && <CheckForWin></CheckForWin>}
+      {gameOver === true && <GoForWin score={score} setScore={setScore}></GoForWin>}
     </div>
   );
 }

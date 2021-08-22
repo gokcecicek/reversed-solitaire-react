@@ -8,12 +8,7 @@ import { BeginDrag, OnDrag, EnterDrag, EndDrag } from "../DragDrop/DragDropCard"
 //Where cards are lined up in sets on the table
 function Tableau(props) {
     
-    const { 
-        table, setTable, 
-        move, setMove, 
-        score, setScore, 
-        gameOver, setGameOver
-    } = props;
+    const { table, setTable, move, setMove, score, setScore, gameOver, setGameOver} = props;
 
     return (
         <div className="tableau-container">

@@ -76,6 +76,7 @@ export const RestartGame = (setTable, setCards, setMove, setScore, gameOver, set
     CompleteElement("foundation", true);
     if(gameOver === true){
         setGameOver(gameOver => !gameOver);
+        document.getElementById("win-popup").style.display = "none";
     }
     setTable((previousSet) => ({
       ...previousSet,

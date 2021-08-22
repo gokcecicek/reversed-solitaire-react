@@ -5,6 +5,7 @@ import GetWastePileToDeck from "../Stock/WastePile";
 function Stock(props) {
 
     const { table, setTable, move, setMove, score, setScore, gameOver, setGameOver } = props;
+
         return (
             <div id="stockCard" onClick={(stockEvent) => { 
                 GetWastePileToDeck(table, setTable, move, setMove, score, setScore, gameOver, setGameOver)}} className="card card-closed card-stock">

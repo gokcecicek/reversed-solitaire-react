@@ -1,12 +1,39 @@
-import React from 'react'
+import React from 'react';
 import Confetti from 'react-confetti'
 import { useWindowSize } from 'react-use'
 import { GameTimer } from './Header'
+import "../Common/common.scss";
 
-
-export const CheckForWin = () => {
+export const GoForWin = (props) => {
+  const { score, setScore } = props;
   GameTimer("pause");
-  return GetConfetti();
+  let userProfit = CalculateProfit(score);
+  return (
+    <div>
+      {GetPopUp(score, userProfit)}
+      {GetConfetti()}
+    </div>
+  )
+}
+
+export const GetPopUp = (score, userProfit) => {
+  return(
+    <div>
+    {<PopUp
+      content={<>
+        <b>Congratulations!</b>
+        <p>Score: {score}</p>
+        <p>You won {userProfit} TL!</p>
+        <button>Add to my Trendyol wallet</button>
+      </>}
+    />}
+  </div>
+  )
+}
+
+export const CalculateProfit = (score) => {
+  let userProfit = score / 500;
+  return userProfit;
 }
 
 //Throw confetti
@@ -33,4 +60,12 @@ export function RemoveAllItemsByClass(removeItemClass){
   }
 }
 
-
+export const PopUp = props => {
+  return (
+    <div className="popup-box" id="win-popup">
+      <div className="box">
+        {props.content}
+      </div>
+    </div>
+  );
+}

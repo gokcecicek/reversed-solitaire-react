@@ -20,7 +20,7 @@ export const BeginDrag = (event, card, deck, table, setTable) => {
 };
 
 //Adds css gameOver that will appear as the selected card/cards is dragged
-export const OnDrag= (event, table) => {
+export const OnDrag = (event, table) => {
   var draggameOverCss;
   table.selected.forEach((card) => {
     var childCard = document.getElementById(card.rank + " " + card.suit + " " + card.deck).children[0];
@@ -98,7 +98,7 @@ export const EndDrag = (card, table, setTable, move, setMove, score, setScore, g
       DeleteCardSelection(table, setTable);
       setMove(move + 1);
       //Five times the number of cards swiped is earned
-      setScore(score += (table.selected.length * 5));
+      setScore(score += (table.selected.length * 2));
       if(CheckAllSetCompleted("foundation")){
         setGameOver(gameOver => !gameOver);
       }

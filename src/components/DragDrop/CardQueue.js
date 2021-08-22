@@ -1,8 +1,7 @@
 import { isEqual }from "lodash";
 import "../Foundation/Foundation.scss";
-import GetConstants from "../Common/Constants";
+import { GetConstants, ToastMessage } from "../Common/Common";
 import { GetCardRank } from "./CardSelection";
-import ToastMessage from "../Common/ToastMessage";
 import { CompleteElement } from "../Foundation/Foundation";
 
 //If the set sequence is complete, remove that set
@@ -37,7 +36,7 @@ export const IsCompleteSet = (deck, table, setTable, score, setScore) => {
       hands: hand + 1,
     }));
     //50 points are earned if a set is completed
-    setScore(score += 50);
+    setScore(score += 30);
     ToastMessage.success(GetConstants.SET_COMPLETED);
   }
 };

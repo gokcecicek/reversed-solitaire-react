@@ -1,5 +1,5 @@
 import { shuffle } from "lodash";
-import GetConstants from "../Common/Constants";
+import { GetConstants } from "../Common/Common";
 
 //There are 8 of each card in the deck
 //Since there are 13 ranks, there are 104 cards in total

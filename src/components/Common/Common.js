@@ -1,4 +1,22 @@
-const GetConstants =  {    
+import { toast } from 'react-toastify';
+import "../Common/common.scss";
+import 'react-toastify/dist/ReactToastify.css'; 
+
+export const ToastMessage = {
+    success(message, options = {}){
+        return toast.success(message, {position: toast.POSITION.TOP_RIGHT});
+    },
+
+    info(message, options = {}){
+        return toast.error(message, {position: toast.POSITION.TOP_RIGHT});
+    },
+
+    error(message, options = {}){
+        return toast.error(message, {position: toast.POSITION.TOP_RIGHT});
+    },
+}
+
+export const GetConstants =  {    
     //TABLEAU
     TABLEAU_COLUMN_NUM: 10,
 
@@ -28,4 +46,3 @@ const GetConstants =  {
     SET_COMPLETED: "One set successfully completed.",
 
 }
-export default GetConstants;

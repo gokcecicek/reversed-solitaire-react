@@ -31,8 +31,6 @@ function WastePile(table, setTable, move, setMove, score, setScore, gameOver, se
                 decks: currentDeck,
             })) 
         );
-        //check set is complete
-        //check for win
     }
 }
 export default WastePile;

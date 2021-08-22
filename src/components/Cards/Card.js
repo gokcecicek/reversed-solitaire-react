@@ -1,6 +1,6 @@
 import "./Card.scss";
 import React, { useState, useEffect } from "react";
-import GetConstants from "../Common/Constants";
+import { GetConstants } from "../Common/Common";
 
 
 function Card({ card, isSelected, isClosed }) {
