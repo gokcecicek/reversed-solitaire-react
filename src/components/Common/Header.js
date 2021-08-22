@@ -47,13 +47,13 @@ export const GameTimer = (action) => {
             timer.textContent = minutes + ':' + seconds;
         }, 1000);
     }
-    else if(action === "pause"){
-        clearInterval(clock);
-    }
     else if(action === "stop"){
         clearInterval(clock);
         timer.textContent = "00:00";
         time = 0;
+    }
+    else if(action === "pause"){
+        clearInterval(clock);
     }
     return;
 }

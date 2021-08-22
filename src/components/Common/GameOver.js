@@ -6,6 +6,7 @@ import { ToastMessage } from './Common';
 import { GetConstants } from "../Common/Constant";
 import "../Common/common.scss";
 
+//Go end of the game
 export const GoForWin = (props) => {
   let userProfit;
   const { score, setScore } = props;
@@ -25,6 +26,7 @@ export const GoForWin = (props) => {
   )
 }
 
+//Open win pop up
 export const GetWinPopUp = (score, userProfit) => {
   const [disable, setDisable] = useState(false);
 
@@ -47,6 +49,7 @@ export const GetWinPopUp = (score, userProfit) => {
   )
 }
 
+//Reusable pop up
 export const PopUp = props => {
   return (
     <div className="popup-box" id="win-popup">
