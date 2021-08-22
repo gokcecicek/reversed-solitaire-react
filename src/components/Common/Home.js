@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import "./common.scss";
 import Stock from "../Stock/Stock";
-import ShuffleDeck from "../Tableau/Shuffle";
-import TableauPile from "../Tableau/TableauPile";
+import TableauPile, { ShuffleDeck } from "../Tableau/TableauPile";
 import Tableau from "../Tableau/Tableau";
 import Foundation from "../Foundation/Foundation";
 import Header from "./Header";
 import { GoForWin } from "./GameOver";
+import { InfoPopUp } from "./Common";
 
 function Home() {
 
@@ -62,8 +62,9 @@ function Home() {
           gameOver={gameOver} setGameOver={setGameOver}>
           </Stock>)}
         </div>
+        <InfoPopUp></InfoPopUp>
       </div>
-      {gameOver !== true && <GoForWin score={score} setScore={setScore}></GoForWin>}
+      {gameOver === true && <GoForWin score={score} setScore={setScore}></GoForWin>}
     </div>
   );
 }

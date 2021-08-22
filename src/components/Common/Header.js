@@ -1,6 +1,5 @@
 import { CompleteElement } from "../Foundation/Foundation";
-import ShuffleDeck from "../Tableau/Shuffle";
-import TableauPile from "../Tableau/TableauPile";
+import TableauPile, {ShuffleDeck} from "../Tableau/TableauPile";
 
 //Global variables
 let clock = 0;
@@ -74,7 +73,7 @@ export const RestartGame = (setTable, setCards, setMove, setScore, gameOver, set
     setMove(0);
     setScore(0);
     CompleteElement("foundation", true);
-    if(gameOver !== true){
+    if(gameOver === true){
         setGameOver(gameOver => !gameOver);
         document.getElementById("win-popup").style.display = "none";
         document.getElementsByClassName("background")[0].classList.remove("background-win"); 

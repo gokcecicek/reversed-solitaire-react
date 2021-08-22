@@ -23,12 +23,12 @@ const table = {selectedCard: {rank: "3"}};
 
 describe("Checks target card is suitable or not to be put on", () => {
     it('should return true if target card is suitable', () => {
-        let targetIsFit = checkTargetRank(targetCard, table);
+        let targetIsFit = CheckTargetRank(targetCard, table);
         expect(targetIsFit).toBe(true);
     });
 
     it('should return false if target card is not suitable', () => {
-        let targetNotFit = checkTargetRank(notTargetCard, table);
+        let targetNotFit = CheckTargetRank(notTargetCard, table);
         expect(targetNotFit).toBe(false);
     });
 });

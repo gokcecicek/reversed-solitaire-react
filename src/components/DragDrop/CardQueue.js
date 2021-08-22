@@ -1,6 +1,7 @@
 import { isEqual }from "lodash";
 import "../Foundation/Foundation.scss";
-import { GetConstants, ToastMessage } from "../Common/Common";
+import { ToastMessage } from "../Common/Common";
+import { GetConstants } from "../Common/Constant";
 import { GetCardRank } from "./CardSelection";
 import { CompleteElement } from "../Foundation/Foundation";
 

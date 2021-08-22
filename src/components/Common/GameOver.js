@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import Confetti from 'react-confetti'
 import { useWindowSize } from 'react-use'
 import { GameTimer } from './Header'
+import { ToastMessage } from './Common';
+import { GetConstants } from "../Common/Constant";
 import "../Common/common.scss";
-import { GetConstants, ToastMessage } from './Common';
 
 export const GoForWin = (props) => {
   let userProfit;

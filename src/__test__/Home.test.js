@@ -1,7 +1,7 @@
 import { BrowserRouter } from "react-router-dom"
 import { render, screen } from '@testing-library/react';
 import Home from "../components/Common/Home";
-import ShuffleDeck from "../components/Tableau/Shuffle";
+import { ShuffleDeck } from "../components/Tableau/TableauPile";
 
 //Home render test
 const HeaderMock = () => {

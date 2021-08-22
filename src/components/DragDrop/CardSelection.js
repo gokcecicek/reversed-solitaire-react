@@ -1,7 +1,8 @@
-import { GetConstants, ToastMessage } from "../Common/Common";
+import { ToastMessage } from "../Common/Common";
 import { GameTimer } from "../Common/Header";
 import { IsCompleteSet } from "./CardQueue";
 import { CheckSelectedCardMove, TransferCardsToAnother } from "./Move";
+import { GetConstants } from "../Common/Constant";
 
 // Returns card rank
 export const GetCardRank = (cardRank) => {

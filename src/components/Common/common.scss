@@ -118,6 +118,8 @@ $trendyol-color: #FF671D;
 
 
 //POPUP STYLE
+
+//Win Pop-up
 .popup-box {
     position: fixed;
     width: 50%;
@@ -145,3 +147,30 @@ $trendyol-color: #FF671D;
     font-weight: bold;
 }
 
+//Info Pop-up
+.tooltip {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+}
+  
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 300px;
+    background-color: white;
+    color: black;
+    border-radius: 6px;
+    padding: 10px 10px;
+    
+    position: absolute;
+    z-index: 1;
+    bottom: 100%;
+    right: 100%;
+    margin-left: -60px;
+}
+  
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
