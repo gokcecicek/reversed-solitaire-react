@@ -76,7 +76,7 @@ export function RemoveAllItemsByClass(removeItemClass){
   }
 }
 
-//Throw confetti
+//Throw the confetti
 /* Thanks to @alampros
 https://github.com/alampros/react-confetti */
 export function GetConfetti() {
