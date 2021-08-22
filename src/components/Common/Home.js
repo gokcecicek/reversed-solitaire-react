@@ -62,6 +62,7 @@ function Home() {
           gameOver={gameOver} setGameOver={setGameOver}>
           </Stock>)}
         </div>
+        <p>CI CD test</p>
         <InfoPopUp></InfoPopUp>
       </div>
       {gameOver === true && <GoForWin score={score} setScore={setScore}></GoForWin>}
