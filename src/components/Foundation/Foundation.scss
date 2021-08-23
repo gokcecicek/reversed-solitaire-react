@@ -1,3 +1,5 @@
+$completed-foundation-background: url("../../assets/trendyol_card_back.png") transparent;
+
 .foundation-container{
     position: absolute;
     top: 0px;
@@ -80,12 +82,12 @@
 }
 
 .completed {
-    background: url("../../assets/trendyol_card_back.png") transparent;
+    background: $completed-foundation-background;
     background-repeat: no-repeat;
     background-position: center;
     background-size: 120%;
     border-top: 0px;
     display: inline-block;
-    border: 4px solid rgb(8, 189, 90);
+    border: 4px solid white;
     opacity: 1;
 }

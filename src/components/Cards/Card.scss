@@ -79,7 +79,7 @@ $card-suit: url("../../assets/spade.png") #ffffff;
   @include card-base;
   position: relative;
   opacity: 0.5;
-  border: 3px solid rgb(8, 189, 90);
+  border: 3px solid white;
   background-color: black;
   border-radius: $card-border-radius;
   margin-left: 10px;
