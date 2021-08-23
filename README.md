@@ -1,70 +1,52 @@
-# Getting Started with Create React App
-#CI CD TEST
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# ♠️ TRENDYOL REVERSED SPIDER SOLITAIRE GAME ♠️
 
-## Available Scripts
+# [Live Demo](https://solitaire-beril-gokce-cicek.herokuapp.com/) 🚀
 
-In the project directory, you can run:
+Turkcell has "Salla Kazan", Vodafone has "Hediye Çarkı", why not such an application in e-commerce sites? For this, I made the Reversed Spider Solitaire game with a Trendyol theme.
 
-### `yarn start`
+ ## Happy Path
+ 
+- The user wins a game coupon for every purchase of 150 TL or more.
+- If he finishes the game, he gets a place on the leaderboard.
+- At the end of the month, the user with the highest score wins the surprise gift.
+- To get more chances, you can shop again and win one more coupon.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Project Preview
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+This is start view. You can move the cards with drag and drop.
+![](./screenshots/preview_1.PNG)
 
-### `yarn test`
+If you try to drag an unordered pile of cards, you will get a warning.
+![](./screenshots/preview_2.PNG)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+A set is complete if a pile of cards is lined up from A to K.
+![](./screenshots/preview_3.PNG)
 
-### `yarn build`
+If you complete all 8 sets, you can see the confetti 🥂
+![](./screenshots/preview_4.PNG)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Project Setup
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Getting started with
+```
+git clone https://github.com/gokcecicek/solitaire-beril-gokce-cicek.git
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Keep going with
 
-### `yarn eject`
+```
+npm install
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Start with
+```
+npm start
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Built with
+- [React](https://reactjs.org)
+- [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+- [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)
+- [SCSS](https://sass-lang.com/guide)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+PS: You can find the unit test and lighthouse results in the screenshot folder.

@@ -37,6 +37,6 @@ export const GetConstants =  {
     WIN_TEXT: "to increase your chances even more.",
     GAME_GOAL_INFO: "You can win a Trendyol Reversed Solitaire game coupon after shopping for 150 TL or more. This month's surprise gift will be given to the highest score win. Good Luck!",
     HEADER: "Trendyol Reversed Solitaire",
-    RANKING_PLACE: "See My Place in the Ranking",
+    RANKING_PLACE: "See My Place in Ranking",
     KEEP_SHOPPING: "Keep Shopping",
 }
