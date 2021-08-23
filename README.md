@@ -7,7 +7,7 @@ Turkcell has "Salla Kazan", Vodafone has "Hediye Çarkı", why not such an appli
  ## Happy Path
  
 - The user wins a game coupon for every purchase of 150 TL or more.
-- If he finishes the game, he gets a place on the leaderboard.
+- If user finishes the game, the user gets a place on the leaderboard.
 - At the end of the month, the user with the highest score wins the surprise gift.
 - To get more chances, you can shop again and win one more coupon.
 
