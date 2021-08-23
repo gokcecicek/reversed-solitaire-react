@@ -2,7 +2,7 @@
 
 # [Live Demo](https://solitaire-beril-gokce-cicek.herokuapp.com/) 🚀
 
-Turkcell has "Salla Kazan", Vodafone has "Hediye Çarkı", why not such an application in e-commerce sites? For this, I made the Reversed Spider Solitaire game with a Trendyol theme.
+GSM operators always have applications such as raffles, games, etc.(e.g Salla Kazan, Hediye Çarkı), why not such an application in e-commerce sites? For this, I made the Reversed Spider Solitaire game with a Trendyol theme.
 
  ## Happy Path
  
