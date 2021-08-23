@@ -1,5 +1,7 @@
+const HEROKU_SOLITAIRE_URL = 'https://solitaire-beril-gokce-cicek.herokuapp.com/';
+
 before(() => {
-    cy.visit('https://solitaire-beril-gokce-cicek.herokuapp.com/');
+    cy.visit(HEROKU_SOLITAIRE_URL);
 })
 
 describe('Website home test', () => {
@@ -26,6 +28,16 @@ describe('Header test', () => {
     });
 });
 
+describe('Restart button test', () => {
+    it('should return color the restart button', () => {
+        cy.get('.restart-btn').should('have.css', 'background-color','rgba(0, 0, 0, 0)');
+    });
+
+    it('should return content of restart button', () => {
+        cy.get('.restart-btn > strong').should('contain', 'NEW GAME');
+    });
+});
+
 describe('Popup test', () => {
     it('should return popup', () => {
         cy.get('.tooltip').trigger('mouseover').then(popup => {
@@ -47,5 +59,24 @@ describe('Stock card click test', () => {
 
     it('should return move as 1 after click stock card', () => {
         cy.get('.header-left label').should('contain', '1');
+    });
+
+    it('should stock card disappear after 5 clicks', () => {
+        for(let i=0; i < 4; i++){
+            cy.get('#stockCard').click();
+        }
+        cy.get('#stockCard').should('have.length', 0);
+    });
+});
+
+describe("Foundation test", () => {
+    it("should return number of foundation holder", () => {
+        cy.get('.foundation').children().should('have.length', 8);
+    });
+});
+
+describe("Tableau test", () => {
+    it("should return number of sets are on the table", () => {
+        cy.get('.tableau-container').children().should('have.length', 10);
     });
 });
