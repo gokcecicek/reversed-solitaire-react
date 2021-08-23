@@ -13,6 +13,8 @@ Turkcell has "Salla Kazan", Vodafone has "Hediye Çarkı", why not such an appli
 
 ## Project Preview
 
+[Click](https://www.solitairecardgames.com/how-to-play-solitaire) to see the definitions of the areas in the game.
+
 This is start view. You can move the cards with drag and drop.
 ![](./screenshots/preview_1.PNG)
 
