@@ -2,21 +2,39 @@ const HEROKU_SOLITAIRE_URL = 'https://solitaire-beril-gokce-cicek.herokuapp.com/
 
 before(() => {
     cy.visit(HEROKU_SOLITAIRE_URL);
-})
+});
 
 describe('Website home test', () => {
     it('should return website title', () => {
       cy.title().should('include', 'Trendyol Reversed Solitaire');
     });
+
+    it('should return label of score', () => {
+        cy.get('.header-center label').should('contain', 'Score');
+    });
+
+    it('should return label of move', () => {
+        cy.get('.timer label').should('contain', 'Timer');
+    });
+
+    it('should return label of time', () => {
+        cy.get('.header-left label').should('contain', 'Moves');
+    });
+
+    it('should return label of restart button', () => {
+        cy.get('.restart-btn > strong').should('contain', 'NEW GAME');
+    });
+
 });
 
-describe('Header test', () => {
+describe('Restart button test', () => {
     before(() => {
         cy.get('.restart-btn').click();
     });
 
     it('should return timer as 00:00 when click restart button', () => {
         cy.get('.timer span').should('contain', '00:00');
+
     });
 
     it('should return move as 0 when click restart button', () => {
@@ -28,23 +46,15 @@ describe('Header test', () => {
     });
 });
 
-describe('Restart button test', () => {
-    it('should return color the restart button', () => {
-        cy.get('.restart-btn').should('have.css', 'background-color','rgba(0, 0, 0, 0)');
-    });
-
-    it('should return content of restart button', () => {
-        cy.get('.restart-btn > strong').should('contain', 'NEW GAME');
-    });
-});
-
 describe('Popup test', () => {
-    it('should return popup', () => {
+    it('should return popup when hover on icon', () => {
+        cy.get('.tooltiptext').should('have.css', 'visibility','hidden');
+
         cy.get('.tooltip').trigger('mouseover').then(popup => {
             if(popup.is(':visible')){
                 assert.isOk('popup','Popup is works');
             }
-        })
+        });
     });
 });
 
@@ -66,6 +76,7 @@ describe('Stock card click test', () => {
             cy.get('#stockCard').click();
         }
         cy.get('#stockCard').should('have.length', 0);
+        cy.get('.header-left label').should('contain', '5');
     });
 });
 
