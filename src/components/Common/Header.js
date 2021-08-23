@@ -1,5 +1,6 @@
 import { CompleteElement } from "../Foundation/Foundation";
 import TableauPile, {ShuffleDeck} from "../Tableau/TableauPile";
+import { GetConstants } from "./Constant";
 
 //Global variables
 let clock = 0;
@@ -12,17 +13,17 @@ function Header(props) {
         <div className="header shadow" data-testid="header-testid">
             <div className="header-left">
                 <div className="timer">
-                    <label>Timer: </label>
+                    <label>{GetConstants.TIMER}: </label>
                     <span>00:00</span>
                 </div>
-                <label>Moves: {move}</label>
+                <label>{GetConstants.MOVES}: {move}</label>
             </div>
             <div className="header-center">
-                <label>Score: {score}</label>
+                <label>{GetConstants.SCORE}: {score}</label>
             </div>
             <div className="header-right">
                 <button className="restart-btn" onClick={() =>{ RestartGame(setTable, setCards, setMove, setScore, gameOver, setGameOver); }}>
-                    <strong>NEW GAME</strong>
+                    <strong>{GetConstants.NEW_GAME.toUpperCase()}</strong>
                 </button> 
             </div>
         </div>

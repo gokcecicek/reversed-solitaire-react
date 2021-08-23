@@ -29,6 +29,9 @@ export const GetConstants =  {
     SUCCESS_OPERATION: "The operation was successful.",
 
     //DICTIONARY
+    TIMER: "Timer",
+    MOVES: "Moves",
+    NEW_GAME: "New Game",
     CELEBRATION_MESSAGE: "Congratulations!",
     SCORE: "Score",
     WIN_TEXT: "to increase your chances even more.",
