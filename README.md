@@ -1,6 +1,6 @@
 # ♠️ TRENDYOL REVERSED SPIDER SOLITAIRE GAME ♠️
 
-# [Live Demo](https://solitaire-beril-gokce-cicek.herokuapp.com/) 🚀
+# [Live Demo](https://pensive-bardeen-e582be.netlify.app/) 🚀
 
 GSM operators always have applications such as raffles, games etc.(e.g Salla Kazan, Hediye Çarkı), why not such an application in e-commerce sites? For this, I made the Reversed Spider Solitaire game with a Trendyol theme.
 
